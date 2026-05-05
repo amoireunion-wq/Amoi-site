@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Sitemap: https://amoi.re/sitemap.xml
+
+# AI crawlers (allow for visibility)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: CCBot
+Allow: /
+
+# Disallow nothing useful to crawl
+Disallow:
