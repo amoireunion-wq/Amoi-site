@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Bebas+Neue&display=swap');
 
 :root {
-  --red: #C93333; --red-dark: #A02020; --red-light: #E05555;
+  --red: #CC2626; --red-dark: #A01E1E; --red-light: #E85555;
   --dark: #1A1A1A; --gray-900: #212121; --gray-700: #424242;
   --gray-500: #757575; --gray-300: #BDBDBD; --gray-100: #F5F5F5;
   --white: #FFFFFF; --black: #000000;
@@ -114,15 +114,16 @@ strong { font-weight: 700; }
   filter: brightness(0.45); z-index: 0;
 }
 .hero-overlay {
+  background: rgba(255,255,255,0.75); /* was dark overlay */
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(201,51,51,0.3) 0%, rgba(0,0,0,0.6) 100%);
   z-index: 1;
 }
 .hero-content { position: relative; z-index: 2; max-width: 700px; }
 .hero-logo { width: 80px; margin-bottom: var(--space-md); }
-.hero h1 { color: var(--white); font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: var(--space-sm); }
+.hero h1 { color: #000; font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: var(--space-sm); }
 .hero-subtitle {
-  color: rgba(255,255,255,0.85); font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #222; font-size: clamp(1.1rem, 2vw, 1.3rem);
   margin-bottom: var(--space-lg); max-width: 550px;
 }
 .hero-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
