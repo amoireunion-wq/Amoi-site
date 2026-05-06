@@ -70,8 +70,9 @@ strong { font-weight: 700; }
 .nav-logo {
   display: flex; align-items: center; gap: var(--space-sm);
   font-family: var(--font-heading); font-size: 1.5rem; color: var(--red);
+  height: 50px; overflow: hidden;
 }
-.nav-logo img { height: 45px; width: auto; }
+.nav-logo img { height: 80px; width: auto; display: block; object-fit: cover; object-position: top; margin-top: -3px; }
 .nav-links { display: flex; gap: var(--space-md); align-items: center; }
 .nav-links a {
   font-weight: 700; font-size: 0.85rem; text-transform: uppercase;
