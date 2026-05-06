@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMOI — Aciérie | Aluminium | Inox</title>
+  <title>AMOI — Charpente, Couverture, Menuiserie, Automatisme à La Réunion</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* === DESIGN SYSTEM — Dynamique === */
     :root {
       --red: #CC2626;
       --red-dark: #A01E1E;
       --red-glow: rgba(204,38,38,0.12);
       --red-ghost: rgba(204,38,38,0.06);
-      --heading: #000000;
+      --heading: #000;
       --body: #555;
       --light: #888;
       --border: #eee;
-      --bg: #ffffff;
+      --bg: #fff;
       --bg-alt: #fafafa;
-      --shadow: rgba(0,0,0,0.06) 0px 4px 24px;
-      --shadow-lg: rgba(0,0,0,0.10) 0px 20px 60px -20px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -34,476 +30,294 @@
       line-height: 1.6;
     }
 
-    /* === ANIMATIONS === */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
     @keyframes pulse {
       0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
       50% { box-shadow: 0 0 0 12px transparent; }
     }
-
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(30px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* === NAVIGATION === */
+    /* === NAV === */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 28px;
-      height: 64px;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 68px;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      text-decoration: none;
-    }
-    .nav-logo img { height: 36px; width: auto; }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      list-style: none;
-    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
     .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--heading);
-      text-decoration: none;
-      letter-spacing: -0.2px;
-      transition: color 0.2s;
+      font-size: 14px; font-weight: 500; color: var(--heading);
+      text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
       position: relative;
     }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--red);
-      transition: width 0.3s;
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
     }
     .nav-links a:hover { color: var(--red); }
     .nav-links a:hover::after { width: 100%; }
     .nav-cta {
-      background: var(--red);
-      color: #fff;
-      padding: 10px 24px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: -0.2px;
-      text-decoration: none;
-      transition: all 0.25s;
+      background: var(--red); color: #fff;
+      padding: 10px 24px; border-radius: 40px;
+      font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
+      text-decoration: none; transition: all 0.25s;
       box-shadow: 0 4px 16px var(--red-glow);
     }
     .nav-cta:hover {
-      background: var(--red-dark);
-      transform: translateY(-1px);
+      background: var(--red-dark); transform: translateY(-1px);
       box-shadow: 0 6px 24px rgba(160,30,30,0.25);
     }
 
     /* === HERO === */
     .hero {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 28px 100px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      min-height: 80vh;
+      position: relative;
+      min-height: 500px;
+      display: flex; align-items: center;
+      padding: 60px 28px;
+      overflow: hidden;
     }
-    .hero-text {
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('images/hero-charpente.webp') center/cover no-repeat;
+      filter: brightness(0.35);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 1;
+      color: #fff;
       animation: fadeUp 0.8s ease;
     }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 14px;
-      background: var(--red-ghost);
-      border: 1px solid rgba(204,38,38,0.15);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--red-dark);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+      backdrop-filter: blur(4px);
     }
     .hero-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--red);
-      border-radius: 50%;
+      content: ''; width: 6px; height: 6px;
+      background: var(--red); border-radius: 50%;
       animation: pulse 2s infinite;
     }
     .hero h1 {
-      font-size: clamp(38px, 5.5vw, 64px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      color: var(--heading);
-      margin-bottom: 20px;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 18px; max-width: 640px;
     }
-    .hero h1 .accent {
-      color: var(--red);
-      position: relative;
-    }
+    .hero h1 .accent { color: #fff; position: relative; }
     .hero h1 .accent::after {
-      content: '';
-      position: absolute;
-      bottom: 2px; left: 0; right: 0;
-      height: 8px;
-      background: var(--red-glow);
-      border-radius: 4px;
-      z-index: -1;
+      content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
+      height: 8px; background: rgba(204,38,38,0.5); border-radius: 4px; z-index: -1;
     }
     .hero p {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--body);
-      line-height: 1.6;
-      margin-bottom: 32px;
-      max-width: 480px;
+      font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.8);
+      line-height: 1.6; margin-bottom: 28px; max-width: 480px;
     }
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 14px 28px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 40px;
-      text-decoration: none;
-      letter-spacing: -0.3px;
-      cursor: pointer;
-      transition: all 0.25s;
-      border: none;
+      display: inline-flex; align-items: center;
+      padding: 14px 28px; font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 600; border-radius: 40px;
+      text-decoration: none; letter-spacing: -0.3px;
+      cursor: pointer; transition: all 0.25s; border: none;
     }
     .btn-primary {
-      background: var(--red);
-      color: #fff;
-      box-shadow: 0 4px 20px var(--red-glow);
+      background: var(--red); color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(160,30,30,0.3);
+      background: var(--red-dark); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
     }
     .btn-ghost {
-      background: transparent;
-      color: var(--heading);
-      border: 1.5px solid #ddd;
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
     }
-    .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
-    /* Hero visual */
-    .hero-visual {
-      animation: fadeIn 1s ease 0.2s both;
-      position: relative;
-    }
-    .hero-card {
-      background: var(--bg);
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      z-index: 2;
-    }
-    .hero-card h3 {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .stat {
-      text-align: center;
-      padding: 16px 12px;
-      background: var(--bg-alt);
-      border-radius: 10px;
-    }
-    .stat-num {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: var(--red);
-    }
-    .stat-label {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--light);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
-    }
-    .hero-blob {
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 200px;
-      height: 200px;
-      background: var(--red-glow);
-      border-radius: 50%;
-      filter: blur(60px);
-      z-index: 0;
-      animation: pulse 3s infinite;
-    }
-
-    /* === SECTION DIVIDER === */
-    .divider {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-    .divider-line {
-      border: none;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--border), transparent);
-    }
-
-    /* === SERVICES === */
+    /* === SECTION === */
     .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 28px;
+      max-width: 1200px; margin: 0 auto; padding: 80px 28px;
     }
     .section-header {
-      text-align: center;
-      margin-bottom: 56px;
+      text-align: center; margin-bottom: 48px;
     }
     .section-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--red-dark);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
+      font-size: 12px; font-weight: 600; color: var(--red-dark);
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
     }
     .section-header h2 {
-      font-size: clamp(32px, 4.5vw, 48px);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin-bottom: 14px;
-      line-height: 1.1;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800; letter-spacing: -1.2px; line-height: 1.1;
     }
     .section-header p {
-      font-size: 16px;
-      color: var(--light);
-      max-width: 500px;
-      margin: 0 auto;
+      font-size: 15px; color: var(--light); max-width: 500px;
+      margin: 10px auto 0;
     }
 
-    .cards-grid {
+    /* === PHOTO CARDS === */
+    .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
-    .card {
+    .photo-card {
+      position: relative;
+      border-radius: 14px; overflow: hidden;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 32px 24px 28px;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      position: relative;
-      overflow: hidden;
+      cursor: pointer;
     }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--red);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
+    .photo-card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
       border-color: rgba(204,38,38,0.2);
     }
-    .card:hover::before { transform: scaleX(1); }
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      background: var(--red-ghost);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 22px;
+    .photo-card-img {
+      width: 100%; height: 220px;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease;
     }
-    .card h4 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.4px;
-      margin-bottom: 10px;
+    .photo-card:hover .photo-card-img { transform: scale(1.04); }
+    .photo-card-body {
+      padding: 20px;
     }
-    .card p {
-      font-size: 14px;
-      color: var(--body);
-      line-height: 1.6;
+    .photo-card h4 {
+      font-size: 18px; font-weight: 700;
+      letter-spacing: -0.3px; margin-bottom: 6px;
     }
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 18px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--red);
-      text-decoration: none;
-      transition: gap 0.2s;
+    .photo-card p {
+      font-size: 13px; color: var(--body); line-height: 1.5;
     }
-    .card-link:hover { gap: 10px; }
+    .photo-card .tag {
+      display: inline-block;
+      padding: 3px 10px; margin-top: 10px;
+      background: var(--red-ghost); color: var(--red-dark);
+      border-radius: 12px; font-size: 11px; font-weight: 600;
+    }
 
-    /* === NUMBERS BANNER === */
+    /* === BADGES === */
+    .badges-row {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap; margin-top: 48px;
+    }
+    .badge-item {
+      text-align: center;
+    }
+    .badge-item img {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--bg-alt); padding: 12px;
+      transition: transform 0.2s;
+    }
+    .badge-item img:hover { transform: scale(1.1); }
+    .badge-item span {
+      display: block; margin-top: 8px;
+      font-size: 12px; font-weight: 600; color: var(--light);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* === NUMBERS === */
     .banner {
-      background: #0a0a0a;
-      color: #fff;
-      padding: 70px 28px;
+      background: #0a0a0a; color: #fff; padding: 60px 28px;
     }
     .banner-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 1000px; margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 32px;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 28px; text-align: center;
     }
     .banner-stat .num {
-      font-size: clamp(40px, 6vw, 56px);
-      font-weight: 800;
-      letter-spacing: -2px;
-      color: var(--red);
-      display: block;
-      line-height: 1;
+      font-size: clamp(36px, 5vw, 50px);
+      font-weight: 800; letter-spacing: -2px;
+      color: var(--red); display: block; line-height: 1;
     }
-    .banner-stat .num span { font-size: 32px; }
+    .banner-stat .num span { font-size: 28px; }
     .banner-stat .lab {
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 12px; font-weight: 500;
       color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 8px;
-      display: block;
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-top: 6px; display: block;
     }
 
-    /* === CTA SECTION === */
+    /* === CTA === */
     .cta-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 28px;
-      text-align: center;
+      max-width: 1200px; margin: 0 auto; padding: 80px 28px; text-align: center;
     }
     .cta-box {
       background: linear-gradient(135deg, var(--red), var(--red-dark));
-      border-radius: 20px;
-      padding: 56px 32px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
+      border-radius: 20px; padding: 56px 32px; color: #fff;
+      position: relative; overflow: hidden;
     }
     .cta-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
       animation: pulse 4s infinite;
     }
     .cta-box h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 14px;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;
       position: relative;
     }
     .cta-box p {
-      font-size: 16px;
-      opacity: 0.9;
-      margin-bottom: 28px;
-      position: relative;
+      font-size: 16px; opacity: 0.9; margin-bottom: 24px; position: relative;
     }
     .btn-white {
-      background: #fff;
-      color: var(--red);
-      padding: 14px 32px;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 15px;
+      background: #fff; color: var(--red);
+      padding: 14px 32px; border-radius: 40px;
+      font-weight: 700; font-size: 15px;
       font-family: 'Inter', sans-serif;
-      text-decoration: none;
-      letter-spacing: -0.3px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s;
-      position: relative;
+      text-decoration: none; letter-spacing: -0.3px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.25s; position: relative;
     }
     .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
 
-    /* === FOOTER === */
-    .footer-bar {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 28px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 13px;
-      color: var(--light);
+    /* === PARTNERS === */
+    .partners-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 36px; flex-wrap: wrap; padding: 40px 0;
     }
-    .footer-bar a { color: var(--red); text-decoration: none; }
+    .partners-row img { height: 40px; width: auto; opacity: 0.6; transition: opacity 0.2s; }
+    .partners-row img:hover { opacity: 1; }
+
+    /* === FOOTER === */
+    footer {
+      max-width: 1200px; margin: 0 auto;
+      padding: 28px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 13px; color: var(--light);
+    }
+    footer a { color: var(--red); text-decoration: none; }
 
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 60px; min-height: auto; }
-      .hero-visual { max-width: 400px; margin: 0 auto; }
       .nav-links { display: none; }
-      .hero h1 { font-size: 36px; letter-spacing: -1px; }
-      .cards-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 380px; padding: 48px 20px; }
+      .hero h1 { font-size: 30px; letter-spacing: -0.8px; }
+      .photo-grid { grid-template-columns: 1fr; }
       .section { padding: 48px 20px; }
-      .banner-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .banner-inner { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -513,8 +327,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="images/logo.webp" alt="AMOI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <span style="display:none;font-size:20px;font-weight:800;letter-spacing:-1px;color:var(--heading);"><span style="color:var(--red);">◼</span> AMOI</span>
+      <img src="images/logo.webp" alt="AMOI">
     </a>
     <ul class="nav-links">
       <li><a href="#">Charpente</a></li>
@@ -527,8 +340,9 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
     <div class="hero-badge">Sur toute l'île de La Réunion</div>
     <h1>Votre <span class="accent">charpente</span> pensée pour durer</h1>
     <p>Aciérie, aluminium, inox — AMOI conçoit et pose vos charpentes, couvertures et menuiseries métalliques avec l'exigence du sur-mesure.</p>
@@ -537,77 +351,145 @@
       <a href="#" class="btn btn-ghost">Nos réalisations</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-blob"></div>
-    <div class="hero-card">
-      <h3>AMOI en chiffres</h3>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">500<span>+</span></span>
-          <span class="stat-label">Chantiers livrés</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">15<span> ans</span></span>
-          <span class="stat-label">D'expérience</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">100<span>%</span></span>
-          <span class="stat-label">Sur mesure</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">974</span>
-          <span class="stat-label">La Réunion</span>
-        </div>
+</header>
+
+<!-- SERVICES : Charpente -->
+<section class="section">
+  <div class="section-header reveal">
+    <p class="section-label">Charpente</p>
+    <h2>Structure solide, savoir-faire local</h2>
+    <p>Charpente traditionnelle bois, charpente métallique, sur-mesure.</p>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/charpente-1.webp" alt="Charpente bois traditionnelle AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Charpente bois traditionnelle</h4>
+        <p>Conception et pose de charpentes en bois pour maisons et bâtiments.</p>
+        <span class="tag">Bois</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/charpente-2.webp" alt="Charpente métallique industrielle AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Charpente métallique</h4>
+        <p>Structures acier pour bâtiments industriels, hangars, entrepôts.</p>
+        <span class="tag">Acier</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/charpente-3.webp" alt="Rénovation charpente AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Rénovation de charpente</h4>
+        <p>Renforcement, remplacement, mise aux normes de votre charpente existante.</p>
+        <span class="tag">Rénovation</span>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider"><div class="divider-line"></div>
+<!-- SERVICES : Couverture -->
+<section class="section">
+  <div class="section-header reveal">
+    <p class="section-label">Couverture</p>
+    <h2>Toiture fiable, protection durable</h2>
+    <p>Tôle, bac acier, étanchéité. Neuf et rénovation.</p>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/hero-charpente.webp" alt="Couverture tôle AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Toiture tôle & bac acier</h4>
+        <p>Pose de toiture neuve en tôle ou bac acier, isolation comprise.</p>
+        <span class="tag">Neuf</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/pergolas.webp" alt="Pergola métallique AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Pergolas & abris</h4>
+        <p>Structures métalliques sur mesure pour terrasse, parking, espace extérieur.</p>
+        <span class="tag">Sur mesure</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/menuiseries-1.webp" alt="Menuiserie métallique AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Étanchéité & zinguerie</h4>
+        <p>Gouttières, chéneaux, bardage. Protection complète de votre toiture.</p>
+        <span class="tag">Protection</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- NUMBERS BANNER -->
+<!-- SERVICES : Menuiserie & Automatisme -->
+<section class="section">
+  <div class="section-header reveal">
+    <p class="section-label">Menuiserie & Automatisme</p>
+    <h2>Vos ouvertures, repensées</h2>
+    <p>Portails, garde-corps, motorisation, contrôle d'accès.</p>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/portail.webp" alt="Portail motorisé AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Portails sur mesure</h4>
+        <p>Portails coulissants, battants, en acier, alu ou inox. Fabrication et pose.</p>
+        <span class="tag">Menuiserie</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/portails-auto.webp" alt="Portails automatiques AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Motorisation de portail</h4>
+        <p>Automatisation de vos portails existants. Confort et sécurité au quotidien.</p>
+        <span class="tag">Automatisme</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/volet-roulant.webp" alt="Volet roulant motorisé AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Volets roulants & stores</h4>
+        <p>Motorisation de volets roulants, stores bannes. Contrôle d'accès.</p>
+        <span class="tag">Motorisation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
 <section class="banner">
   <div class="banner-inner reveal">
     <div class="banner-stat"><span class="num">500<span>+</span></span><span class="lab">Chantiers</span></div>
     <div class="banner-stat"><span class="num">4</span><span class="lab">Corps de métier</span></div>
-    <div class="banner-stat"><span class="num">24</span><span class="lab">Communes couvertes</span></div>
-    <div class="banner-stat"><span class="num">100<span>%</span></span><span class="lab">Satisfaction</span></div>
+    <div class="banner-stat"><span class="num">24</span><span class="lab">Communes</span></div>
+    <div class="banner-stat"><span class="num">100<span>%</span></span><span class="lab">Sur mesure</span></div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section">
-  <div class="section-header reveal">
-    <p class="section-label">Nos expertises</p>
-    <h2>Quatre métiers, une exigence</h2>
-    <p>De la charpente traditionnelle aux portails automatisés, AMOI maîtrise chaque corps de métier.</p>
+<!-- BADGES -->
+<section class="section" style="padding-top:48px;">
+  <div class="badges-row reveal">
+    <div class="badge-item">
+      <img src="images/badge-experience.webp" alt="Expérience" loading="lazy">
+      <span>15 ans d'expérience</span>
+    </div>
+    <div class="badge-item">
+      <img src="images/badge-rc-pro.webp" alt="RC Pro" loading="lazy">
+      <span>Responsabilité civile</span>
+    </div>
+    <div class="badge-item">
+      <img src="images/badge-garantie.webp" alt="Garantie" loading="lazy">
+      <span>Garantie décennale</span>
+    </div>
   </div>
 
-  <div class="cards-grid">
-    <div class="card reveal">
-      <div class="card-icon">🏗️</div>
-      <h4>Charpente métal / bois</h4>
-      <p>Conception et pose de charpentes traditionnelles et industrielles. Sur-mesure pour chaque projet, neuf ou rénovation.</p>
-      <a href="#" class="card-link">En savoir plus →</a>
-    </div>
-    <div class="card reveal">
-      <div class="card-icon">🏠</div>
-      <h4>Couverture & toiture</h4>
-      <p>Toiture tôle, bac acier, étanchéité. Protection durable pour votre bâtiment, avec garantie décennale.</p>
-      <a href="#" class="card-link">En savoir plus →</a>
-    </div>
-    <div class="card reveal">
-      <div class="card-icon">🔩</div>
-      <h4>Menuiserie métallique</h4>
-      <p>Portails, garde-corps, escaliers, passerelles. Fabrication et pose en acier, aluminium et inox.</p>
-      <a href="#" class="card-link">En savoir plus →</a>
-    </div>
-    <div class="card reveal">
-      <div class="card-icon">⚙️</div>
-      <h4>Automatisme</h4>
-      <p>Motorisation de portails, portes de garage, contrôle d'accès. Confort et sécurité au quotidien.</p>
-      <a href="#" class="card-link">En savoir plus →</a>
-    </div>
+  <!-- PARTNERS -->
+  <div class="partners-row reveal" style="margin-top:36px;">
+    <img src="images/partenaire-laposte.webp" alt="La Poste" loading="lazy">
+    <img src="images/partenaire-total.webp" alt="Total" loading="lazy">
+    <img src="images/partenaire-ste-suzanne.webp" alt="Sainte-Suzanne" loading="lazy">
   </div>
 </section>
 
@@ -621,44 +503,16 @@
 </section>
 
 <!-- FOOTER -->
-<div class="footer-bar">
+<footer>
   <span>© 2026 AMOI — 14 rue des Lilas, 97412 Bras-Panon</span>
   <span><a href="tel:+262262510557">02 62 51 05 57</a></span>
-</div>
+</footer>
 
 <script>
-// Reveal on scroll
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Animate banner numbers
-const bannerObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.num').forEach(num => {
-        const target = parseInt(num.textContent);
-        if (isNaN(target)) return;
-        let current = 0;
-        const increment = target / 40;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) { current = target; clearInterval(timer); }
-          num.textContent = Math.floor(current) + (num.querySelector('span') ? num.querySelector('span').outerHTML : '');
-        }, 30);
-      });
-      bannerObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.banner-inner').forEach(el => bannerObserver.observe(el));
 </script>
 </body>
 </html>
