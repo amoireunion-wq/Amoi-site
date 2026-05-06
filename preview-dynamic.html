@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMOI — Aciérie | Aluminium | Inox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* === DESIGN SYSTEM — Dynamique === */
+    :root {
+      --red: #CC2626;
+      --red-dark: #A01E1E;
+      --red-glow: rgba(204,38,38,0.12);
+      --red-ghost: rgba(204,38,38,0.06);
+      --heading: #000000;
+      --body: #555;
+      --light: #888;
+      --border: #eee;
+      --bg: #ffffff;
+      --bg-alt: #fafafa;
+      --shadow: rgba(0,0,0,0.06) 0px 4px 24px;
+      --shadow-lg: rgba(0,0,0,0.10) 0px 20px 60px -20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--heading);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
+      50% { box-shadow: 0 0 0 12px transparent; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* === NAVIGATION === */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--heading);
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--red);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.2px;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 4px 16px var(--red-glow);
+    }
+    .nav-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
+    }
+
+    /* === HERO === */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 28px 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 80vh;
+    }
+    .hero-text {
+      animation: fadeUp 0.8s ease;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--red-ghost);
+      border: 1px solid rgba(204,38,38,0.15);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--red-dark);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 5.5vw, 64px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: var(--heading);
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent {
+      color: var(--red);
+      position: relative;
+    }
+    .hero h1 .accent::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 8px;
+      background: var(--red-glow);
+      border-radius: 4px;
+      z-index: -1;
+    }
+    .hero p {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--body);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 40px;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--red-glow);
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(160,30,30,0.3);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--heading);
+      border: 1.5px solid #ddd;
+    }
+    .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+    /* Hero visual */
+    .hero-visual {
+      animation: fadeIn 1s ease 0.2s both;
+      position: relative;
+    }
+    .hero-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat {
+      text-align: center;
+      padding: 16px 12px;
+      background: var(--bg-alt);
+      border-radius: 10px;
+    }
+    .stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--red);
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+    .hero-blob {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: var(--red-glow);
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      animation: pulse 3s infinite;
+    }
+
+    /* === SECTION DIVIDER === */
+    .divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    .divider-line {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+
+    /* === SERVICES === */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 28px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--red-dark);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+    .section-header p {
+      font-size: 16px;
+      color: var(--light);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 24px 28px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(204,38,38,0.2);
+    }
+    .card:hover::before { transform: scaleX(1); }
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--red-ghost);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    .card h4 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--red);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 10px; }
+
+    /* === NUMBERS BANNER === */
+    .banner {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 70px 28px;
+    }
+    .banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+    .banner-stat .num {
+      font-size: clamp(40px, 6vw, 56px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: var(--red);
+      display: block;
+      line-height: 1;
+    }
+    .banner-stat .num span { font-size: 32px; }
+    .banner-stat .lab {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* === CTA SECTION === */
+    .cta-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 28px;
+      text-align: center;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      border-radius: 20px;
+      padding: 56px 32px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+      animation: pulse 4s infinite;
+    }
+    .cta-box h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .cta-box p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--red);
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+      position: relative;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+    /* === FOOTER === */
+    .footer-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--light);
+    }
+    .footer-bar a { color: var(--red); text-decoration: none; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 60px; min-height: auto; }
+      .hero-visual { max-width: 400px; margin: 0 auto; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 36px; letter-spacing: -1px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .section { padding: 48px 20px; }
+      .banner-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="images/logo.webp" alt="AMOI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span style="display:none;font-size:20px;font-weight:800;letter-spacing:-1px;color:var(--heading);"><span style="color:var(--red);">◼</span> AMOI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Charpente</a></li>
+      <li><a href="#">Couverture</a></li>
+      <li><a href="#">Menuiserie</a></li>
+      <li><a href="#">Automatisme</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Devis gratuit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Sur toute l'île de La Réunion</div>
+    <h1>Votre <span class="accent">charpente</span> pensée pour durer</h1>
+    <p>Aciérie, aluminium, inox — AMOI conçoit et pose vos charpentes, couvertures et menuiseries métalliques avec l'exigence du sur-mesure.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Demander un devis →</a>
+      <a href="#" class="btn btn-ghost">Nos réalisations</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-blob"></div>
+    <div class="hero-card">
+      <h3>AMOI en chiffres</h3>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">500<span>+</span></span>
+          <span class="stat-label">Chantiers livrés</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">15<span> ans</span></span>
+          <span class="stat-label">D'expérience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100<span>%</span></span>
+          <span class="stat-label">Sur mesure</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">974</span>
+          <span class="stat-label">La Réunion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"><div class="divider-line"></div>
+
+<!-- NUMBERS BANNER -->
+<section class="banner">
+  <div class="banner-inner reveal">
+    <div class="banner-stat"><span class="num">500<span>+</span></span><span class="lab">Chantiers</span></div>
+    <div class="banner-stat"><span class="num">4</span><span class="lab">Corps de métier</span></div>
+    <div class="banner-stat"><span class="num">24</span><span class="lab">Communes couvertes</span></div>
+    <div class="banner-stat"><span class="num">100<span>%</span></span><span class="lab">Satisfaction</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-header reveal">
+    <p class="section-label">Nos expertises</p>
+    <h2>Quatre métiers, une exigence</h2>
+    <p>De la charpente traditionnelle aux portails automatisés, AMOI maîtrise chaque corps de métier.</p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card reveal">
+      <div class="card-icon">🏗️</div>
+      <h4>Charpente métal / bois</h4>
+      <p>Conception et pose de charpentes traditionnelles et industrielles. Sur-mesure pour chaque projet, neuf ou rénovation.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">🏠</div>
+      <h4>Couverture & toiture</h4>
+      <p>Toiture tôle, bac acier, étanchéité. Protection durable pour votre bâtiment, avec garantie décennale.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">🔩</div>
+      <h4>Menuiserie métallique</h4>
+      <p>Portails, garde-corps, escaliers, passerelles. Fabrication et pose en acier, aluminium et inox.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">⚙️</div>
+      <h4>Automatisme</h4>
+      <p>Motorisation de portails, portes de garage, contrôle d'accès. Confort et sécurité au quotidien.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="cta-box">
+    <h2>Un projet en tête ?</h2>
+    <p>Parlez-nous de votre chantier. Devis gratuit et sans engagement.</p>
+    <a href="#" class="btn-white">Demander un devis →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <span>© 2026 AMOI — 14 rue des Lilas, 97412 Bras-Panon</span>
+  <span><a href="tel:+262262510557">02 62 51 05 57</a></span>
+</div>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Animate banner numbers
+const bannerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.num').forEach(num => {
+        const target = parseInt(num.textContent);
+        if (isNaN(target)) return;
+        let current = 0;
+        const increment = target / 40;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) { current = target; clearInterval(timer); }
+          num.textContent = Math.floor(current) + (num.querySelector('span') ? num.querySelector('span').outerHTML : '');
+        }, 30);
+      });
+      bannerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.banner-inner').forEach(el => bannerObserver.observe(el));
+</script>
+</body>
+</html>
