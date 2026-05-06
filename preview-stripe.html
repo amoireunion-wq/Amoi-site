@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMOI — Aciérie | Aluminium | Inox — Preview Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* === DESIGN SYSTEM — Stripe adapté AMOI === */
+    :root {
+      --red: #CC2626;
+      --red-dark: #A01E1E;
+      --red-light: #E85555;
+      --red-ghost: rgba(204,38,38,0.08);
+      --heading: #000000;
+      --body: #4a4a4a;
+      --label: #1a1a1a;
+      --border: #e8e8e8;
+      --border-red: rgba(204,38,38,0.2);
+      --bg: #ffffff;
+      --bg-alt: #fafafa;
+      --shadow-sm: rgba(180,30,30,0.06) 0px 2px 8px;
+      --shadow-md: rgba(180,30,30,0.08) 0px 15px 35px, rgba(0,0,0,0.04) 0px 8px 18px;
+      --shadow-lg: rgba(180,30,30,0.12) 0px 30px 50px -30px, rgba(0,0,0,0.08) 0px 18px 36px -18px;
+      --radius: 6px;
+      --radius-sm: 4px;
+      --radius-lg: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+      color: var(--heading);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    /* === NAVIGATION === */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading);
+      letter-spacing: -0.4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand span { color: var(--red); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--heading);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 14px;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--red-dark); }
+
+    /* === HERO === */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      color: var(--heading);
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 span { color: var(--red); font-weight: 400; }
+    .hero-subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--body);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 22px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--red-dark); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--red);
+      border: 1px solid var(--border-red);
+    }
+    .btn-ghost:hover { background: var(--red-ghost); }
+
+    /* === SECTION TITLES === */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 300;
+      letter-spacing: -0.6px;
+      color: var(--heading);
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--body);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* === SERVICE CARDS === */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px 24px;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-red);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--red-ghost);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+    .card h4 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--body);
+      line-height: 1.5;
+    }
+    .card-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--red);
+      text-decoration: none;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    /* === BADGE === */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      background: var(--red-ghost);
+      color: var(--red-dark);
+      border: 1px solid var(--border-red);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* === FOOTER === */
+    .footer-bar {
+      max-width: 1100px;
+      margin: 60px auto 0;
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--body);
+    }
+
+    /* === MOBILE === */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 60px 20px 48px; }
+      .hero h1 { font-size: 32px; letter-spacing: -0.6px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .section { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand"><span>⬛</span> AMOI</div>
+    <ul class="nav-links">
+      <li><a href="#">Charpente</a></li>
+      <li><a href="#">Couverture</a></li>
+      <li><a href="#">Menuiserie</a></li>
+      <li><a href="#">Automatisme</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Devis gratuit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="badge">Sur toute l'île de La Réunion</span>
+  <h1>Votre projet de <span>charpente & couverture</span> mérite le meilleur</h1>
+  <p class="hero-subtitle">
+    Aciérie, aluminium, inox — AMOI intervient sur toute l'île pour vos travaux de charpente métal/bois, couverture, menuiserie métallique et automatisme.
+  </p>
+  <div class="hero-actions">
+    <a href="#" class="btn btn-primary">Demander un devis</a>
+    <a href="#" class="btn btn-ghost">Découvrir nos services</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Nos expertises</p>
+    <h2>Des services complets pour votre construction</h2>
+    <p>De la charpente traditionnelle aux portails automatisés, une équipe qualifiée sur toute l'île.</p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🏗️</div>
+      <h4>Charpente métal / bois</h4>
+      <p>Conception et pose de charpentes traditionnelles et industrielles. Sur-mesure pour chaque projet.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏠</div>
+      <h4>Couverture & toiture</h4>
+      <p>Toiture tôle, bac acier, étanchéité. Protection durable pour votre bâtiment, neuf ou rénovation.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔩</div>
+      <h4>Menuiserie métallique</h4>
+      <p>Portails, garde-corps, escaliers, passerelles en acier, alu et inox. Fabrication et pose.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h4>Automatisme & contrôle d'accès</h4>
+      <p>Motorisation de portails, portes de garage, contrôle d'accès. Confort et sécurité au quotidien.</p>
+      <a href="#" class="card-link">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <span>© 2026 AMOI — 14 rue des Lilas, 97412 Bras-Panon</span>
+  <span><a href="tel:+262262510557" style="color:var(--red);text-decoration:none;">02 62 51 05 57</a></span>
+</div>
+
+</body>
+</html>
