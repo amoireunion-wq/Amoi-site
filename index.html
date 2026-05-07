@@ -1,388 +1,518 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AMOI - Charpentier à La Réunion. Charpente métal/bois, couverture, menuiserie métallique et automatisme. Plus de 14 ans d'expérience. Devis gratuit.">
-  <title>Charpente, couverture et métallerie à La Réunion - AMOI</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/webp" href="images/logo.webp">
+  <title>AMOI — Charpente, Couverture, Menuiserie, Automatisme à La Réunion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #CC2626;
+      --red-dark: #A01E1E;
+      --red-glow: rgba(204,38,38,0.12);
+      --red-ghost: rgba(204,38,38,0.06);
+      --heading: #000;
+      --body: #555;
+      --light: #888;
+      --border: #eee;
+      --bg: #fff;
+      --bg-alt: #fafafa;
+    }
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://amoi.re/">
-  <meta property="og:title" content="Charpente, couverture et métallerie à La Réunion - AMOI">
-  <meta property="og:description" content="AMOI - Charpentier à La Réunion. Charpente métal/bois, couverture, menuiserie métallique et automatisme. Plus de 14 ans d'expérience. Devis gratuit.">
-  <meta property="og:image" content="https://amoi.re/images/logo.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="AMOI">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Charpente, couverture et métallerie à La Réunion - AMOI">
-  <meta name="twitter:description" content="AMOI - Charpentier à La Réunion. Charpente métal/bois, couverture, menuiserie métallique et automatisme. Plus de 14 ans d'expérience. Devis gratuit.">
-  <meta name="twitter:image" content="https://amoi.re/images/logo.webp">
-  <!-- Canonical -->
-  <link rel="canonical" href="https://amoi.re/">
-  <!-- Robots -->
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "AMOI",
-    "alternateName": "Anglade Métal Océan Indien",
-    "description": "Charpentier à La Réunion. Charpente métal/bois, couverture, menuiserie métallique et automatisme. Plus de 14 ans d'expérience. Devis gratuit.",
-    "url": "https://amoi.re/",
-    "telephone": "+262692436318",
-    "email": "amoi.reunion@gmail.com",
-    "address": {"@type": "PostalAddress", "streetAddress": "14 Rue des Lilas", "addressLocality": "Bras-Panon", "postalCode": "97412", "addressRegion": "La Réunion", "addressCountry": "FR"},
-    "geo": {"@type": "GeoCoordinates", "latitude": -20.9941, "longitude": 55.6750},
-    "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "18:30"}],
-    "priceRange": "€€",
-    "areaServed": {"@type": "State", "name": "La Réunion"},
-    "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services AMOI", "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Charpente métal/bois"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Couverture et toiture"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Menuiserie métallique"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Automatisme et contrôle d'accès"}}
-    ]},
-    "sameAs": ["https://www.facebook.com/amoireunion/"],
-    "image": "https://amoi.re/images/logo.webp",
-    "foundingDate": "2012"
-  }
-  </script>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--heading);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
+      50% { box-shadow: 0 0 0 12px transparent; }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* === NAV === */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 68px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 50px; width: auto; display: block; object-fit: contain; }
+    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--heading);
+      text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red); color: #fff;
+      padding: 10px 24px; border-radius: 40px;
+      font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
+      text-decoration: none; transition: all 0.25s;
+      box-shadow: 0 4px 16px var(--red-glow);
+    }
+    .nav-cta:hover {
+      background: var(--red-dark); transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
+    }
+
+    /* === HERO === */
+    .hero {
+      position: relative;
+      min-height: 500px;
+      display: flex; align-items: center;
+      padding: 60px 28px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('images/hero-charpente.webp') center/cover no-repeat;
+      filter: brightness(0.35);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 1;
+      color: #fff;
+      animation: fadeUp 0.8s ease;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--red); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 18px; max-width: 640px;
+    }
+    .hero h1 .accent { color: #fff; position: relative; }
+    .hero h1 .accent::after {
+      content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
+      height: 8px; background: rgba(204,38,38,0.5); border-radius: 4px; z-index: -1;
+    }
+    .hero p {
+      font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.8);
+      line-height: 1.6; margin-bottom: 28px; max-width: 480px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 14px 28px; font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 600; border-radius: 40px;
+      text-decoration: none; letter-spacing: -0.3px;
+      cursor: pointer; transition: all 0.25s; border: none;
+    }
+    .btn-primary {
+      background: var(--red); color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--red-dark); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .btn-ghost {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+    /* === SECTION === */
+    .section {
+      max-width: 1200px; margin: 0 auto; padding: 80px 28px;
+    }
+    .section-header {
+      text-align: center; margin-bottom: 48px;
+    }
+    .section-label {
+      font-size: 12px; font-weight: 600; color: var(--red-dark);
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800; letter-spacing: -1.2px; line-height: 1.1;
+    }
+    .section-header p {
+      font-size: 15px; color: var(--light); max-width: 500px;
+      margin: 10px auto 0;
+    }
+
+    /* === PHOTO CARDS === */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .photo-card {
+      position: relative;
+      border-radius: 14px; overflow: hidden;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+    .photo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      border-color: rgba(204,38,38,0.2);
+    }
+    .photo-card-img {
+      width: 100%; height: 220px;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .photo-card:hover .photo-card-img { transform: scale(1.04); }
+    .photo-card-body {
+      padding: 20px;
+    }
+    .photo-card h4 {
+      font-size: 18px; font-weight: 700;
+      letter-spacing: -0.3px; margin-bottom: 6px;
+    }
+    .photo-card p {
+      font-size: 13px; color: var(--body); line-height: 1.5;
+    }
+    .photo-card .tag {
+      display: inline-block;
+      padding: 3px 10px; margin-top: 10px;
+      background: var(--red-ghost); color: var(--red-dark);
+      border-radius: 12px; font-size: 11px; font-weight: 600;
+    }
+
+    /* === BADGES === */
+    .badges-row {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap; margin-top: 48px;
+    }
+    .badge-item {
+      text-align: center;
+    }
+    .badge-item img {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--bg-alt); padding: 12px;
+      transition: transform 0.2s;
+    }
+    .badge-item img:hover { transform: scale(1.1); }
+    .badge-item span {
+      display: block; margin-top: 8px;
+      font-size: 12px; font-weight: 600; color: var(--light);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* === NUMBERS === */
+    .banner {
+      background: #0a0a0a; color: #fff; padding: 60px 28px;
+    }
+    .banner-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 28px; text-align: center;
+    }
+    .banner-stat .num {
+      font-size: clamp(36px, 5vw, 50px);
+      font-weight: 800; letter-spacing: -2px;
+      color: var(--red); display: block; line-height: 1;
+    }
+    .banner-stat .num span { font-size: 28px; }
+    .banner-stat .lab {
+      font-size: 12px; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-top: 6px; display: block;
+    }
+
+    /* === CTA === */
+    .cta-section {
+      max-width: 1200px; margin: 0 auto; padding: 80px 28px; text-align: center;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      border-radius: 20px; padding: 56px 32px; color: #fff;
+      position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+      animation: pulse 4s infinite;
+    }
+    .cta-box h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;
+      position: relative;
+    }
+    .cta-box p {
+      font-size: 16px; opacity: 0.9; margin-bottom: 24px; position: relative;
+    }
+    .btn-white {
+      background: #fff; color: var(--red);
+      padding: 14px 32px; border-radius: 40px;
+      font-weight: 700; font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none; letter-spacing: -0.3px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.25s; position: relative;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+    /* === PARTNERS === */
+    .partners-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 36px; flex-wrap: wrap; padding: 40px 0;
+    }
+    .partners-row img { height: 40px; width: auto; opacity: 0.6; transition: opacity 0.2s; }
+    .partners-row img:hover { opacity: 1; }
+
+    /* === FOOTER === */
+    footer {
+      max-width: 1200px; margin: 0 auto;
+      padding: 28px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 13px; color: var(--light);
+    }
+    footer a { color: var(--red); text-decoration: none; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { min-height: 380px; padding: 48px 20px; }
+      .hero h1 { font-size: 30px; letter-spacing: -0.8px; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .section { padding: 48px 20px; }
+      .banner-inner { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar" id="navbar">
-  <div class="container">
-    <a href="index.html" class="nav-logo">
-      <img src="images/logo.webp" alt="AMOI">
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="images/logo-nav.webp" alt="AMOI">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html" class="active">Accueil</a>
-      <a href="charpente.html">Charpente Métal/Bois</a>
-      <a href="couverture.html">Couverture</a>
-      <a href="menuiserie.html">Menuiserie</a>
-      <a href="automatisme.html">Automatisme</a>
-      <a href="contact.html">Contact</a>
-      <a href="tel:+262692436318" class="nav-phone">📞 06 92 43 63 18</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="#">Charpente</a></li>
+      <li><a href="#">Couverture</a></li>
+      <li><a href="#">Menuiserie</a></li>
+      <li><a href="#">Automatisme</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Devis gratuit</a>
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
+<!-- HERO -->
+<header class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="container">
-    <div class="hero-content">
-      <img src="images/logo.webp" alt="AMOI" class="hero-logo">
-      <h1>AMOI</h1>
-      <p class="hero-subtitle">Charpentier à Bras-Panon — Construction, rénovation et restauration de charpente, couverture et métallerie sur mesure.</p>
-      <div class="hero-actions">
-        <a href="tel:+262692436318" class="btn btn-primary">📞 06 92 43 63 18</a>
-        <a href="contact.html" class="btn btn-outline">Contactez-nous</a>
-      </div>
+  <div class="hero-inner">
+    <div class="hero-badge">Sur toute l'île de La Réunion</div>
+    <h1>Votre <span class="accent">charpente</span> pensée pour durer</h1>
+    <p>Aciérie, aluminium, inox — AMOI conçoit et pose vos charpentes, couvertures et menuiseries métalliques avec l'exigence du sur-mesure.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Demander un devis →</a>
+      <a href="#" class="btn btn-ghost">Nos réalisations</a>
     </div>
   </div>
-</section>
+</header>
 
-<!-- MÉTALLERIE SUR MESURE -->
+<!-- SERVICES : Charpente -->
 <section class="section">
-  <div class="container">
-    <span class="section-label">Métallerie sur mesure</span>
-    <h2 class="section-title">Charpentier sur toute l'île</h2>
-    <p>Avec plus de <strong>14 ans d'expérience</strong>, AMOI met à votre service le savoir-faire d'un charpentier qualifié sur toute l'île. Nous intervenons pour la <strong>construction, la rénovation ou la restauration</strong> de votre <strong>charpente</strong>, dans le respect des normes et de la solidité de votre habitat. Nous réalisons également vos travaux de couverture, pour une toiture fiable et durable.</p>
-    <p>En complément, nous assurons la pose de vos <strong>menuiseries métalliques</strong> (portails, garde-corps, etc.) ainsi que l'installation de systèmes <strong>d'automatisme</strong>, pour plus de confort et de sécurité au quotidien.</p>
-    <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-md)">Nous contacter</a>
+  <div class="section-header reveal">
+    <p class="section-label">Charpente</p>
+    <h2>Structure solide, savoir-faire local</h2>
+    <p>Charpente traditionnelle bois, charpente métallique, sur-mesure.</p>
   </div>
-</section>
-
-<!-- Image pleine largeur -->
-<div class="section-gray" style="padding:0">
-  <img src="images/hero-charpente.webp" alt="Rénovation complète de charpente par AMOI" style="width:100%;max-height:500px;object-fit:cover;">
-</div>
-
-<!-- Services -->
-<section class="section section-gray">
-  <div class="container">
-    <h2 class="section-title" style="text-align:center">Nos services incluent</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-number">01</div>
-        <h3>Charpente et couverture</h3>
-        <p>Construction, rénovation et restauration de charpente bois et métallique. Pose de toiture, réparation de fuites.</p>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/charpente-1.webp" alt="Charpente bois traditionnelle AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Charpente bois traditionnelle</h4>
+        <p>Conception et pose de charpentes en bois pour maisons et bâtiments.</p>
+        <span class="tag">Bois</span>
       </div>
-      <div class="service-card">
-        <div class="service-number">02</div>
-        <h3>Menuiserie métallique</h3>
-        <p>Garde-corps, portails, escaliers, pergolas et terrasses sur mesure. Fabrication artisanale.</p>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/charpente-2.webp" alt="Charpente métallique industrielle AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Charpente métallique</h4>
+        <p>Structures acier pour bâtiments industriels, hangars, entrepôts.</p>
+        <span class="tag">Acier</span>
       </div>
-      <div class="service-card">
-        <div class="service-number">03</div>
-        <h3>Automatisme</h3>
-        <p>Motorisation de portails, volets roulants, portes de garage. Systèmes de contrôle d'accès.</p>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/charpente-3.webp" alt="Rénovation charpente AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Rénovation de charpente</h4>
+        <p>Renforcement, remplacement, mise aux normes de votre charpente existante.</p>
+        <span class="tag">Rénovation</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Charpente et Couverture -->
+<!-- SERVICES : Couverture -->
 <section class="section">
-  <div class="container">
-    <h2 class="section-title">Charpente et Couverture</h2>
-    <p><strong>AMOI</strong> est votre spécialiste de <strong>charpente et de couverture près de Paniandy</strong>. Nous intervenons aussi bien pour un projet neuf qu'en rénovation. Nous effectuons la construction ou la restauration de charpente en bois, la réparation de toiture, le changement de gouttière, etc.</p>
-    <div style="margin:var(--space-md) 0;display:flex;gap:var(--space-md)">
-      <a href="charpente.html" class="btn btn-primary">Charpente</a>
-      <a href="couverture.html" class="btn btn-outline-dark">Couverture</a>
+  <div class="section-header reveal">
+    <p class="section-label">Couverture</p>
+    <h2>Toiture fiable, protection durable</h2>
+    <p>Tôle, bac acier, étanchéité. Neuf et rénovation.</p>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/hero-charpente.webp" alt="Couverture tôle AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Toiture tôle & bac acier</h4>
+        <p>Pose de toiture neuve en tôle ou bac acier, isolation comprise.</p>
+        <span class="tag">Neuf</span>
+      </div>
     </div>
-    <div class="gallery">
-      <img src="images/charpente-1.webp" alt="Charpente bois traditionnelle construite par AMOI à La Réunion" loading="lazy">
-      <img src="images/charpente-3.webp" alt="Charpente métallique industrielle réalisée par AMOI" loading="lazy">
-      <img src="images/charpente-2.webp" alt="Rénovation complète de charpente par AMOI" loading="lazy">
+    <div class="photo-card reveal">
+      <img src="images/pergolas.webp" alt="Pergola métallique AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Pergolas & abris</h4>
+        <p>Structures métalliques sur mesure pour terrasse, parking, espace extérieur.</p>
+        <span class="tag">Sur mesure</span>
+      </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/menuiseries-1.webp" alt="Menuiserie métallique AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Étanchéité & zinguerie</h4>
+        <p>Gouttières, chéneaux, bardage. Protection complète de votre toiture.</p>
+        <span class="tag">Protection</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Menuiserie métallique -->
-<section class="section section-gray">
-  <div class="container">
-    <h2 class="section-title">Menuiserie métallique</h2>
-    <p><strong>AMOI</strong> est votre entreprise de <strong>menuiserie métallique sur toute l'île</strong>. Les ouvrages réalisés en métal sont durables et apportent une touche esthétique à un habitat. Nous pouvons nous occuper de la création de garde-corps, la construction de terrasse, la mise en place d'un escalier…</p>
-    <a href="menuiserie.html" class="btn btn-primary" style="margin:var(--space-md) 0;display:inline-flex">Menuiserie</a>
-    <div class="gallery">
-      <img src="images/menuiseries-1.webp" alt="Menuiserie métallique sur mesure AMOI - Garde-corps et portails" loading="lazy">
-      <img src="images/menuiseries-3.webp" alt="Escalier métallique artisanal fabriqué par AMOI" loading="lazy">
-      <img src="images/pergolas.webp" alt="Pergola en métal sur mesure réalisée par AMOI à La Réunion" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- Automatisme -->
+<!-- SERVICES : Menuiserie & Automatisme -->
 <section class="section">
-  <div class="container">
-    <h2 class="section-title">Automatisme</h2>
-    <p>AMOI est votre entreprise d'automatisme près de Bras-Panon. Nous pouvons nous charger de la motorisation de vos différentes menuiseries telles que les portails, les volets roulants ou encore les portes de garage. Nous réalisons, aussi, la mise en place de système de contrôle d'accès.</p>
-    <a href="automatisme.html" class="btn btn-primary" style="margin:var(--space-md) 0;display:inline-flex">Automatisme</a>
-    <div class="gallery">
-      <img src="images/portail.webp" alt="Portail automatique motorisé installé par AMOI" loading="lazy">
-      <img src="images/volet-roulant.webp" alt="Volet roulant motorisé posé par AMOI" loading="lazy">
-      <img src="images/portails-auto.webp" alt="Portails automatiques AMOI - Motorisation et contrôle d'accès" loading="lazy">
-    </div>
+  <div class="section-header reveal">
+    <p class="section-label">Menuiserie & Automatisme</p>
+    <h2>Vos ouvertures, repensées</h2>
+    <p>Portails, garde-corps, motorisation, contrôle d'accès.</p>
   </div>
-</section>
-
-<!-- Badges confiance -->
-<section class="section section-gray">
-  <div class="container">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <img src="images/badge-experience.webp" alt="Expérience">
-        <h4>Plus de 10 ans d'expérience</h4>
-      </div>
-      <div class="trust-item">
-        <img src="images/badge-rc-pro.webp" alt="RC Pro">
-        <h4>Responsabilité civile professionnelle</h4>
-      </div>
-      <div class="trust-item">
-        <img src="images/badge-garantie.webp" alt="Garantie">
-        <h4>Garantie décennale</h4>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/portail.webp" alt="Portail motorisé AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Portails sur mesure</h4>
+        <p>Portails coulissants, battants, en acier, alu ou inox. Fabrication et pose.</p>
+        <span class="tag">Menuiserie</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Social -->
-<section class="section" style="padding:0">
-  <div class="social-section">
-    <div class="social-fb">
-      <img src="images/social-facebook.webp" alt="Suivez AMOI sur Facebook">
-      <span class="section-label">Nos actualités</span>
-      <h2>Suivez-nous sur Facebook</h2>
-      <a href="https://www.facebook.com/amoireunion/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:var(--space-md)">Découvrir la page</a>
-    </div>
-    <div class="social-google">
-      <img src="images/social-google.webp" alt="AMOI sur Google - Avis et profil">
-      <span class="section-label">Merci</span>
-      <h2>Pour votre confiance</h2>
-    </div>
-  </div>
-</section>
-
-<!-- Partenaires -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title" style="text-align:center">Nos partenaires</h2>
-    <div class="partners-grid">
-      <img src="images/partenaire-laposte.webp" alt="La Poste">
-      <img src="images/partenaire-total.webp" alt="Total">
-      <img src="images/partenaire-ste-suzanne.webp" alt="Sainte-Suzanne">
-    </div>
-  </div>
-</section>
-
-<!-- Horaires -->
-<section class="section section-red">
-  <div class="container">
-    <span class="section-label">AMOI</span>
-    <h2 style="color:var(--white)">Nos horaires</h2>
-    <div class="schedule-grid">
-      <div class="schedule-day"><div class="day">Lundi</div><div class="hours">08:00 - 18:30</div></div>
-      <div class="schedule-day"><div class="day">Mardi</div><div class="hours">08:00 - 18:30</div></div>
-      <div class="schedule-day"><div class="day">Mercredi</div><div class="hours">08:00 - 18:30</div></div>
-      <div class="schedule-day"><div class="day">Jeudi</div><div class="hours">08:00 - 18:30</div></div>
-      <div class="schedule-day"><div class="day">Vendredi</div><div class="hours">08:00 - 18:30</div></div>
-      <div class="schedule-day"><div class="day">Samedi</div><div class="hours">08:00 - 18:30</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section class="section">
-  <div class="container">
-    <span class="section-label">Prenons contact</span>
-    <h2 class="section-title">Contactez AMOI</h2>
-    <p>Vous souhaitez obtenir un devis, des conseils ou simplement en savoir plus sur nos prestations en <strong>charpente, couverture, menuiserie métallique ou automatisme</strong> ? N'hésitez pas à nous contacter. L'équipe <strong>AMOI</strong> est à votre écoute pour répondre à toutes vos demandes et vous accompagner dans la réalisation de vos travaux sur <strong>toute l'île</strong>.</p>
-    <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-md)">Nous contacter</a>
-  </div>
-</section>
-
-<!-- Coordonnées -->
-<section class="section section-gray">
-  <div class="container">
-    <div class="contact-info" style="flex-direction:row;justify-content:center;gap:var(--space-xl);flex-wrap:wrap">
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📍</div>
-        <div class="contact-info-text">
-          <h4>Adresse</h4>
-          <p>14 Rue des Lilas<br>97412 Bras-Panon</p>
-        </div>
+    <div class="photo-card reveal">
+      <img src="images/portails-auto.webp" alt="Portails automatiques AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Motorisation de portail</h4>
+        <p>Automatisation de vos portails existants. Confort et sécurité au quotidien.</p>
+        <span class="tag">Automatisme</span>
       </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📞</div>
-        <div class="contact-info-text">
-          <h4>Téléphone</h4>
-          <a href="tel:+262692436318">06 92 43 63 18</a>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">✉️</div>
-        <div class="contact-info-text">
-          <h4>E-mail</h4>
-          <a href="mailto:amoi.reunion@gmail.com">amoi.reunion@gmail.com</a>
-        </div>
+    </div>
+    <div class="photo-card reveal">
+      <img src="images/volet-roulant.webp" alt="Volet roulant motorisé AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Volets roulants & stores</h4>
+        <p>Motorisation de volets roulants, stores bannes. Contrôle d'accès.</p>
+        <span class="tag">Motorisation</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <img src="images/logo.webp" alt="AMOI" class="footer-logo">
-        <ul class="footer-contact">
-          <li>📍 14 Rue des Lilas, 97412 Bras-Panon</li>
-          <li><a href="tel:+262692436318">📞 06 92 43 63 18</a></li>
-          <li><a href="mailto:amoi.reunion@gmail.com">✉️ amoi.reunion@gmail.com</a></li>
-          <li><a href="https://www.facebook.com/amoireunion/" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Plan du site</h4>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="charpente.html">Charpente métal/bois</a></li>
-          <li><a href="couverture.html">Couverture</a></li>
-          <li><a href="menuiserie.html">Menuiserie</a></li>
-          <li><a href="automatisme.html">Automatisme / Contrôle d'accès</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nos prestations</h4>
-        <ul>
-          <li><a href="charpente.html">Charpente métallique</a></li>
-          <li><a href="charpente.html">Construction métallique</a></li>
-          <li><a href="menuiserie.html">Menuiserie métallique</a></li>
-          <li><a href="automatisme.html">Portail</a></li>
-          <li><a href="automatisme.html">Clôture</a></li>
-          <li><a href="couverture.html">Rénovation toiture</a></li>
-          <li><a href="couverture.html">Rénovation couverture</a></li>
-          <li><a href="automatisme.html">Automatisation portails</a></li>
-          <li><a href="charpente.html">Charpente bois</a></li>
-          <li><a href="menuiserie.html">Pergolas</a></li>
-          <li><a href="menuiserie.html">Terrasse bois</a></li>
-        </ul>
-      </div>
+<!-- NUMBERS -->
+<section class="banner">
+  <div class="banner-inner reveal">
+    <div class="banner-stat"><span class="num">500<span>+</span></span><span class="lab">Chantiers</span></div>
+    <div class="banner-stat"><span class="num">4</span><span class="lab">Corps de métier</span></div>
+    <div class="banner-stat"><span class="num">24</span><span class="lab">Communes</span></div>
+    <div class="banner-stat"><span class="num">100<span>%</span></span><span class="lab">Sur mesure</span></div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="section" style="padding-top:48px;">
+  <div class="badges-row reveal">
+    <div class="badge-item">
+      <img src="images/badge-experience.webp" alt="Expérience" loading="lazy">
+      <span>15 ans d'expérience</span>
+    </div>
+    <div class="badge-item">
+      <img src="images/badge-rc-pro.webp" alt="RC Pro" loading="lazy">
+      <span>Responsabilité civile</span>
+    </div>
+    <div class="badge-item">
+      <img src="images/badge-garantie.webp" alt="Garantie" loading="lazy">
+      <span>Garantie décennale</span>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-sm)">
-      <span>© 2024 AMOI - Tous droits réservés</span>
-      <span>
-        <a href="#">Mentions légales</a> — 
-        <a href="#">Gestion des cookies</a>
-      </span>
-    </div>
+
+  <!-- PARTNERS -->
+  <div class="partners-row reveal" style="margin-top:36px;">
+    <img src="images/partenaire-laposte.webp" alt="La Poste" loading="lazy">
+    <img src="images/partenaire-total.webp" alt="Total" loading="lazy">
+    <img src="images/partenaire-ste-suzanne.webp" alt="Sainte-Suzanne" loading="lazy">
   </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="cta-box">
+    <h2>Un projet en tête ?</h2>
+    <p>Parlez-nous de votre chantier. Devis gratuit et sans engagement.</p>
+    <a href="#" class="btn-white">Demander un devis →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 AMOI — 14 rue des Lilas, 97412 Bras-Panon</span>
+  <span><a href="tel:+262262510557">02 62 51 05 57</a></span>
 </footer>
 
-<!-- Scroll to top -->
-<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
-
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="container">
-    <p>Ce site utilise des cookies pour améliorer votre expérience.</p>
-    <div class="cookie-actions">
-      <button class="btn btn-sm btn-primary" onclick="document.getElementById('cookieBanner').style.display='none'">Tout accepter</button>
-      <button class="btn btn-sm btn-outline-dark" onclick="document.getElementById('cookieBanner').style.display='none'" style="color:var(--white);border-color:var(--white)">Tout refuser</button>
-    </div>
-  </div>
-</div>
-
 <script>
-// Mobile nav toggle
-document.getElementById('navToggle').addEventListener('click', function() {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Scroll effects
-window.addEventListener('scroll', function() {
-  var navbar = document.getElementById('navbar');
-  var scrollTop = document.getElementById('scrollTop');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-    scrollTop.classList.add('visible');
-  } else {
-    navbar.classList.remove('scrolled');
-    scrollTop.classList.remove('visible');
-  }
-});
-
-document.getElementById('scrollTop').addEventListener('click', function() {
-  window.scrollTo({top:0, behavior:'smooth'});
-});
-
-// Cookie banner
-if (!localStorage.getItem('cookiesAccepted')) {
-  document.getElementById('cookieBanner').style.display = 'block';
-}
-document.querySelectorAll('#cookieBanner button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    localStorage.setItem('cookiesAccepted', 'true');
-  });
-});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
