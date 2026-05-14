@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1143 455" width="1143" height="455">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800;700&amp;display=swap');
+      .amoi { font-family: 'Inter', 'Arial Black', sans-serif; font-weight: 800; font-size: 175px; fill: #000; }
+      .sub { font-family: 'Inter', 'Arial', sans-serif; font-weight: 700; font-size: 28px; fill: #000; }
+    </style>
+  </defs>
+
+  <!-- Forme rouge avec effet 3D -->
+  <g>
+    <!-- Ombre / face droite -->
+    <path d="M 300,112 L 335,116 L 335,410 L 300,407 Z" fill="#991919" />
+    <!-- Ombre / face basse -->
+    <path d="M 60,428 L 300,407 L 335,410 L 70,431 Z" fill="#801515" />
+
+    <!-- Face avant avec trou -->
+    <path d="
+      M 60,31
+      L 300,112
+      L 300,407
+      L 60,428
+      Z
+      M 95,82
+      L 280,155
+      L 280,375
+      L 95,348
+      Z
+    " fill="#CC2626" fill-rule="evenodd" />
+  </g>
+
+  <!-- Texte AMOI -->
+  <text x="360" y="280" class="amoi">AMOI</text>
+
+  <!-- Ligne rouge -->
+  <line x1="360" y1="302" x2="1125" y2="302" stroke="#CC2626" stroke-width="5" />
+
+  <!-- Sous-titre -->
+  <text x="360" y="352" class="sub">ACIER | ALUMINIUM | INOX</text>
+</svg>
