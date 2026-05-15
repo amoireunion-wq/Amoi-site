@@ -5,7 +5,7 @@
 - [Accueil](https://amoi.re/): Présentation complète, services, contact
 - [Charpente Métal/Bois](https://amoi.re/charpente.html): Construction et rénovation de charpente
 - [Couverture](https://amoi.re/couverture.html): Toiture, tôle, gouttières, surtoiture
-- [Menuiserie métallique](https://amoi.re/menuiserie.html): Garde-corps, portails, escaliers, pergolas
+- [Menuiserie métallique](https://amoi.re/metallerie.html): Garde-corps, portails, escaliers, pergolas
 - [Automatisme](https://amoi.re/automatisme.html): Motorisation portails, volets roulants, contrôle d'accès
 - [Contact](https://amoi.re/contact.html): Devis gratuit, formulaire de contact
 
