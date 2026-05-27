@@ -3,8 +3,8 @@
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
-  <title>Motorisation de portails et automatisme à La Réunion - AMOI</title>
+  <meta name="description" content="AMOI - Automatisme à La Réunion. Motorisation de portails, volets roulants, portes de garage. Systèmes de contrôle d'accès. Devis gratuit.">
+  <title>Automatisme et contrôle d'accès à La Réunion - AMOI</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/webp" href="images/logo.webp">
 
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://amoi.re/automatisme.html">
   <meta property="og:title" content="Automatisme et contrôle d'accès à La Réunion - AMOI">
-  <meta property="og:description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
+  <meta property="og:description" content="AMOI - Automatisme à La Réunion. Motorisation de portails, volets roulants, portes de garage. Systèmes de contrôle d'accès. Devis gratuit.">
   <meta property="og:image" content="https://amoi.re/images/logo.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Automatisme et contrôle d'accès à La Réunion - AMOI">
-  <meta name="twitter:description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
+  <meta name="twitter:description" content="AMOI - Automatisme à La Réunion. Motorisation de portails, volets roulants, portes de garage. Systèmes de contrôle d'accès. Devis gratuit.">
   <meta name="twitter:image" content="https://amoi.re/images/logo.webp">
   <!-- Canonical -->
   <link rel="canonical" href="https://amoi.re/automatisme.html">
@@ -321,7 +321,7 @@
   <div class="hero-inner">
     <div class="hero-badge">Automatisme & Contrôle d'accès • Sur toute l'île</div>
     <h1>Automatisme pensé pour votre <span class="accent">confort</span></h1>
-    <p>Motorisation de portails et systèmes d'automatisme sur mesure à La Réunion.</p>
+    <p>Motorisation de portails, volets roulants et systèmes de contrôle d'accès fiables et performants.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn btn-primary">Demander un devis →</a>
       <a href="#realisations" class="btn btn-ghost">Voir nos réalisations</a>
@@ -334,7 +334,7 @@
   <div class="section-header">
     <span class="section-label">Automatisme</span>
     <h2 class="section-title">Facilitez votre quotidien</h2>
-    <p>Spécialiste de la motorisation de portails et des systèmes d'automatisme sur mesure à La Réunion.</p>
+    <p>AMOI vous propose des solutions d'automatisation fiables pour sécuriser et simplifier vos accès à La Réunion.</p>
   </div>
   <div class="photo-grid">
     <div class="photo-card">
@@ -344,7 +344,13 @@
         <span class="tag">Confort</span>
       </div>
     </div>
-
+    <div class="photo-card">
+      <div class="photo-card-body">
+        <h4>Volets roulants</h4>
+        <p>Motorisation et automatisation de volets et stores.</p>
+        <span class="tag">Sécurité</span>
+      </div>
+    </div>
     <div class="photo-card">
       <div class="photo-card-body">
         <h4>Portes de garage</h4>
@@ -400,13 +406,75 @@
 
   </div>
 </section>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" class="lightbox-content">
+  <p id="lightbox-caption" class="lightbox-caption"></p>
+</div>
+<script>
+function openLightbox(src,c){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox-caption').textContent=c;document.getElementById('lightbox').classList.add('active')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+</script>
 
+<!-- Badges confiance -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <img src="images/badge-experience.webp" alt="Expérience">
+        <h4>Plus de 10 ans d'expérience</h4>
+      </div>
+      <div class="trust-item">
+        <img src="images/badge-rc-pro.webp" alt="RC Pro">
+        <h4>Responsabilité civile professionnelle</h4>
+      </div>
+      <div class="trust-item">
+        <img src="images/badge-garantie.webp" alt="Garantie">
+        <h4>Garantie décennale</h4>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- CTA Contact -->
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Prenons contact</span>
+    <h2 class="section-title">Un projet d'automatisme ?</h2>
+    <p>Vous souhaitez obtenir un devis, des conseils ou simplement en savoir plus sur nos prestations en <strong>automatisme et contrôle d'accès</strong> ? N'hésitez pas à nous contacter. L'équipe <strong>AMOI</strong> est à votre écoute pour répondre à toutes vos demandes et vous accompagner dans la réalisation de vos travaux sur <strong>toute l'île</strong>.</p>
+    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+  </div>
+</section>
 
-
-
-
-
+<!-- Coordonnées -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="contact-info" style="flex-direction:row;justify-content:center;gap:var(--space-xl);flex-wrap:wrap">
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div class="contact-info-text">
+          <h4>Adresse</h4>
+          <p>14 Rue des Lilas<br>97412 Bras-Panon</p>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📞</div>
+        <div class="contact-info-text">
+          <h4>Téléphone</h4>
+          <a href="tel:+262****6318">06 92 43 63 18</a>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉️</div>
+        <div class="contact-info-text">
+          <h4>E-mail</h4>
+          <a href="mailto:amoi.reunion@gmail.com">amoi.reunion@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
