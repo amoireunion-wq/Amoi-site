@@ -217,6 +217,85 @@
 
   </style>
 
+
+  <style>
+    /* === Modern harmonization from accueil === */
+    :root {
+      --red: #CC2626;
+      --red-dark: #A01E1E;
+      --red-glow: rgba(204,38,38,0.12);
+      --red-ghost: rgba(204,38,38,0.06);
+      --heading: #000;
+      --body: #555;
+      --light: #888;
+      --border: #eee;
+      --bg: #fff;
+    }
+
+    /* Modern Nav - exact from accueil */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 68px;
+    }
+    .nav-logo img { max-height: 55px; height: auto; width: auto; display: block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--heading);
+      text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red); color: #fff;
+      padding: 10px 24px; border-radius: 40px;
+      font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
+      text-decoration: none; transition: all 0.25s;
+      box-shadow: 0 4px 16px var(--red-glow);
+    }
+    .nav-cta:hover {
+      background: var(--red-dark); transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
+    }
+
+    /* Basic modern section + card styles */
+    .section {
+      max-width: 1200px; margin: 0 auto; padding: 60px 28px;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .photo-card {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: all 0.25s ease;
+    }
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .photo-card img {
+      width: 100%; height: 200px; object-fit: cover; display: block;
+    }
+    .photo-card-body { padding: 16px; }
+    .photo-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .photo-card p { font-size: 13px; color: #666; line-height: 1.4; }
+  </style>
+
 </head>
 <body>
 
