@@ -30,27 +30,80 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"AMOI","url":"https://amoi.re/","telephone":"+262692436318","address":{"@type":"PostalAddress","streetAddress":"14 Rue des Lilas","addressLocality":"Bras-Panon","postalCode":"97412","addressRegion":"La Réunion","addressCountry":"FR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:30"}],"areaServed":{"@type":"State","name":"La Réunion"}}
   </script>
+  <!-- Modern harmonization styles (nav + hero + sections) -->
+  <style>
+    :root {
+      --red: #CC2626;
+      --red-dark: #A01E1E;
+      --red-glow: rgba(204,38,38,0.12);
+      --border: #eee;
+      --heading: #000;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 68px;
+    }
+    .nav-logo img { max-height: 55px; height: auto; width: auto; display: block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--heading);
+      text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red); color: #fff;
+      padding: 10px 24px; border-radius: 40px;
+      font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
+      text-decoration: none; transition: all 0.25s;
+      box-shadow: 0 4px 16px var(--red-glow);
+    }
+    .nav-cta:hover {
+      background: var(--red-dark); transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
+    }
+    /* Hero + section basics */
+    .hero { position: relative; min-height: 380px; display: flex; align-items: center; padding: 50px 28px; color: #fff; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(28px, 4.5vw, 46px); font-weight: 800; line-height: 1.05; letter-spacing: -1.2px; margin-bottom: 14px; }
+    .hero p { font-size: 15px; color: rgba(255,255,255,0.85); max-width: 520px; }
+    .section { padding: 56px 28px; }
+    .section-header { max-width: 1200px; margin: 0 auto 32px; }
+    .section-label { color: var(--red); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
+    .section-title { font-size: clamp(24px, 3.2vw, 34px); font-weight: 800; letter-spacing: -0.6px; margin-bottom: 10px; }
+  </style>
+
 </head>
 <body>
 
 <!-- Navigation -->
-<nav class="navbar" id="navbar">
-  <div class="container">
+<!-- NAV harmonized with accueil -->
+<nav>
+  <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="images/logo.webp" alt="AMOI">
+      <img src="images/logo-banner.webp" alt="AMOI">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Accueil</a>
-      <a href="charpente.html">Charpente Métal/Bois</a>
-      <a href="couverture.html" class="active">Couverture</a>
-      <a href="metallerie.html">Métallerie</a>
-      <a href="automatisme.html">Automatisme</a>
-      <a href="contact.html">Contact</a>
-      <a href="tel:+262****6318" class="nav-phone">📞 06 92 43 63 18</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="charpente.html">Charpente</a></li>
+      <li><a href="couverture.html">Couverture</a></li>
+      <li><a href="metallerie.html">Métallerie</a></li>
+      <li><a href="automatisme.html">Automatisme</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Devis gratuit</a>
   </div>
 </nav>
 
