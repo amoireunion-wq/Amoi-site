@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
-  <title>Motorisation de portails et automatisme à La Réunion - AMOI</title>
+  <meta name="description" content="AMOI - Motorisation de portails, volets roulants et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
+  <title>Motorisation et automatisme à La Réunion - AMOI</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/webp" href="images/logo.webp">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://amoi.re/automatisme.html">
-  <meta property="og:title" content="Automatisme et contrôle d'accès à La Réunion - AMOI">
-  <meta property="og:description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
+  <meta property="og:title" content="Motorisation et automatisme à La Réunion - AMOI">
+  <meta property="og:description" content="AMOI - Motorisation de portails, volets et contrôle d'accès sur mesure à La Réunion. Devis gratuit.">
   <meta property="og:image" content="https://amoi.re/images/logo.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="AMOI">
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Automatisme et contrôle d'accès à La Réunion - AMOI">
-  <meta name="twitter:description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Portails motorisés, contrôle d'accès. Devis gratuit.">
+  <meta name="twitter:title" content="Motorisation et automatisme à La Réunion - AMOI">
+  <meta name="twitter:description" content="AMOI - Motorisation de portails et automatisme à La Réunion. Devis gratuit.">
   <meta name="twitter:image" content="https://amoi.re/images/logo.webp">
+
   <!-- Canonical -->
   <link rel="canonical" href="https://amoi.re/automatisme.html">
-  <!-- Robots -->
   <meta name="robots" content="index, follow, max-image-preview:large">
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"AMOI","url":"https://amoi.re/","telephone":"+262692436318","address":{"@type":"PostalAddress","streetAddress":"14 Rue des Lilas","addressLocality":"Bras-Panon","postalCode":"97412","addressRegion":"La Réunion","addressCountry":"FR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:30"}],"areaServed":{"@type":"State","name":"La Réunion"}}
+  {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"AMOI","url":"https://amoi.re/","telephone":"+262 692 43 63 18","address":{"@type":"PostalAddress","streetAddress":"14 Rue des Lilas","addressLocality":"Bras-Panon","postalCode":"97412","addressRegion":"La Réunion","addressCountry":"FR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:30"}],"areaServed":{"@type":"State","name":"La Réunion"}}
   </script>
-  <!-- Modern nav styles harmonized with accueil -->
+
+  <!-- CSS harmonisé moderne (consolidé et propre) -->
   <style>
     :root {
       --red: #CC2626;
@@ -38,7 +41,10 @@
       --red-glow: rgba(204,38,38,0.12);
       --border: #eee;
       --heading: #000;
+      --body: #555;
     }
+
+    /* Nav harmonisé */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(255,255,255,0.94);
@@ -50,19 +56,18 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 28px; height: 68px;
     }
-    .nav-logo img { max-height: 55px; height: auto; width: auto; display: block; }
+    .nav-logo {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 18px; font-weight: 700; color: var(--heading);
+      text-decoration: none;
+    }
+    .nav-logo img { max-height: 42px; height: auto; width: auto; display: block; }
     .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
     .nav-links a {
       font-size: 14px; font-weight: 500; color: var(--heading);
       text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
     }
     .nav-links a:hover { color: var(--red); }
-    .nav-links a:hover::after { width: 100%; }
     .nav-cta {
       background: var(--red); color: #fff;
       padding: 10px 24px; border-radius: 40px;
@@ -72,17 +77,13 @@
     }
     .nav-cta:hover {
       background: var(--red-dark); transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
     }
-  
-    /* Hero styles harmonized */
+
+    /* Hero */
     .hero {
-      position: relative;
-      min-height: 420px;
+      position: relative; min-height: 420px;
       display: flex; align-items: center;
-      padding: 60px 28px;
-      overflow: hidden;
-      color: #fff;
+      padding: 60px 28px; overflow: hidden; color: #fff;
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -91,93 +92,39 @@
       max-width: 1200px; margin: 0 auto; width: 100%;
       position: relative; z-index: 1;
     }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 14px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
-      text-transform: uppercase; margin-bottom: 20px;
-      backdrop-filter: blur(4px);
-    }
     .hero h1 {
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 800; line-height: 1.05;
-      letter-spacing: -1.5px; margin-bottom: 16px; max-width: 640px;
-    }
-    .hero h1 .accent { color: #fff; position: relative; }
-    .hero h1 .accent::after {
-      content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
-      height: 6px; background: rgba(204,38,38,0.6); border-radius: 3px; z-index: -1;
+      letter-spacing: -1.5px; margin-bottom: 16px;
     }
     .hero p {
-      font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.85);
-      line-height: 1.6; margin-bottom: 24px; max-width: 520px;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center;
-      padding: 12px 24px; font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 600; border-radius: 40px;
-      text-decoration: none; transition: all 0.25s;
-    }
-    .btn-primary {
-      background: var(--red); color: #fff;
-      box-shadow: 0 4px 16px var(--red-glow);
-    }
-    .btn-primary:hover {
-      background: var(--red-dark); transform: translateY(-1px);
-    }
-    .btn-ghost {
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.2);
+      font-size: 18px; font-weight: 400;
+      color: rgba(255,255,255,0.85); line-height: 1.6;
     }
 
-  
-    /* Section & Card styles harmonized with accueil */
+    /* Sections et cartes */
     .section {
-      padding: 64px 28px;
+      max-width: 1200px; margin: 0 auto; padding: 64px 28px;
     }
-    .section + .section {
-      border-top: 1px solid var(--border);
-    }
-    .section-header {
-      max-width: 1200px;
-      margin: 0 auto 40px;
-    }
+    .section + .section { border-top: 1px solid var(--border); }
     .section-label {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: block;
+      color: var(--red); text-transform: uppercase;
+      letter-spacing: 0.15em; font-size: 0.85rem; font-weight: 700;
+      margin-bottom: 8px; display: block;
     }
     .section-title {
       font-size: clamp(26px, 3.5vw, 36px);
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 12px;
-      color: var(--heading);
+      font-weight: 800; letter-spacing: -0.8px;
+      margin-bottom: 12px; color: var(--heading);
     }
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 24px; max-width: 1200px; margin: 0 auto;
     }
     .photo-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      background: #fff; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .photo-card:hover {
@@ -185,125 +132,54 @@
       box-shadow: 0 12px 32px rgba(0,0,0,0.1);
     }
     .photo-card-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 220px; object-fit: cover; display: block;
     }
-    .photo-card-body {
-      padding: 16px 18px;
-    }
+    .photo-card-body { padding: 16px 18px; }
     .photo-card-body h4 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--heading);
+      font-size: 15px; font-weight: 700;
+      margin-bottom: 6px; color: var(--heading);
     }
     .photo-card-body p {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 8px;
+      font-size: 13px; color: #666; line-height: 1.5;
     }
     .tag {
-      display: inline-block;
-      font-size: 11px;
-      padding: 2px 9px;
-      border-radius: 999px;
-      background: var(--red-glow);
-      color: var(--red);
+      display: inline-block; font-size: 11px;
+      padding: 2px 9px; border-radius: 999px;
+      background: var(--red-glow); color: var(--red);
       font-weight: 600;
     }
 
-  </style>
-
-
-  <style>
-    /* === Modern harmonization from accueil === */
-    :root {
-      --red: #CC2626;
-      --red-dark: #A01E1E;
-      --red-glow: rgba(204,38,38,0.12);
-      --red-ghost: rgba(204,38,38,0.06);
-      --heading: #000;
-      --body: #555;
-      --light: #888;
-      --border: #eee;
-      --bg: #fff;
+    /* Footer propre et simple */
+    footer {
+      background: #111; color: #fff; padding: 40px 28px;
+      font-size: 14px;
     }
-
-    /* Modern Nav - exact from accueil */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
+    .footer-inner {
       max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 28px; height: 68px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
     }
-    .nav-logo img { max-height: 55px; height: auto; width: auto; display: block; }
-    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--heading);
-      text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
-      position: relative;
+    .footer-col h4 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 12px; color: #aaa;
     }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
+    .footer-col a { color: #ccc; text-decoration: none; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      margin-top: 32px; padding-top: 20px;
+      border-top: 1px solid #222; text-align: center;
+      font-size: 12px; color: #666;
     }
-    .nav-links a:hover { color: var(--red); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: var(--red); color: #fff;
-      padding: 10px 24px; border-radius: 40px;
-      font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
-      text-decoration: none; transition: all 0.25s;
-      box-shadow: 0 4px 16px var(--red-glow);
-    }
-    .nav-cta:hover {
-      background: var(--red-dark); transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
-    }
-
-    /* Basic modern section + card styles */
-    .section {
-      max-width: 1200px; margin: 0 auto; padding: 60px 28px;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .photo-card {
-      border-radius: 12px; overflow: hidden;
-      border: 1px solid var(--border);
-      background: #fff;
-      transition: all 0.25s ease;
-    }
-    .photo-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-    .photo-card img {
-      width: 100%; height: 200px; object-fit: cover; display: block;
-    }
-    .photo-card-body { padding: 16px; }
-    .photo-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .photo-card p { font-size: 13px; color: #666; line-height: 1.4; }
   </style>
-
 </head>
 <body>
 
-<!-- NAV (harmonized with accueil) -->
+<!-- NAV harmonisé (logo forme rouge + texte) -->
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="images/logo-banner.webp" alt="AMOI">
+      <img src="images/logo.webp" alt="AMOI">
+      AMOI
     </a>
     <ul class="nav-links">
       <li><a href="charpente.html">Charpente</a></li>
@@ -315,199 +191,129 @@
   </div>
 </nav>
 
-<!-- HERO simple -->
+<!-- HERO -->
 <header class="hero">
-  <div class="hero-bg" style="background: url('images/motorisation-portail-coulissant-01.jpg') center/cover no-repeat; filter: brightness(0.3);"></div>
+  <div class="hero-bg" style="background: url('images/motorisation-portail-coulissant-01.jpg') center/cover no-repeat; filter: brightness(0.35);"></div>
   <div class="hero-inner">
-    <h1>Nos réalisations</h1>
-    <p>Motorisation de portails</p>
+    <h1>Motorisation &amp; Automatisme</h1>
+    <p>Portails, volets et contrôle d'accès sur mesure à La Réunion.</p>
   </div>
 </header>
 
-<!-- Confort et modernité (harmonisé) -->
+<!-- Services -->
 <section class="section">
-  <div class="section-header">
+  <div>
     <span class="section-label">Automatisme</span>
     <h2 class="section-title">Facilitez votre quotidien</h2>
-    <p>Spécialiste de la motorisation de portails et des systèmes d'automatisme sur mesure à La Réunion.</p>
+    <p style="max-width: 640px; color: var(--body); line-height: 1.6;">Spécialiste de la motorisation de portails, volets roulants et systèmes d'automatisme sur mesure à La Réunion.</p>
   </div>
-  <div class="photo-grid">
+
+  <div class="photo-grid" style="margin-top: 32px;">
     <div class="photo-card">
       <div class="photo-card-body">
         <h4>Portails automatiques</h4>
-        <p>Pose et motorisation de portails coulissants et battants.</p>
+        <p>Pose et motorisation de portails coulissants et battants (acier, alu, inox).</p>
         <span class="tag">Confort</span>
       </div>
     </div>
-
     <div class="photo-card">
       <div class="photo-card-body">
-        <h4>Portes de garage</h4>
-        <p>Automatisation et systèmes de contrôle d'accès.</p>
-        <span class="tag">Fiabilité</span>
+        <h4>Volets &amp; stores</h4>
+        <p>Motorisation de volets roulants, stores bannes et contrôle d'accès.</p>
+        <span class="tag">Sécurité</span>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<!-- Galerie Motorisation -->
+<!-- Galerie propre - seulement les bonnes réalisations -->
 <section class="section">
-  <div class="container">
-    <h2 class="section-title">Nos réalisations — Motorisation</h2>
-    <p>Exemples d'installations de motorisation de portails et systèmes d'automatisme réalisées par AMOI.</p>
+  <div>
+    <span class="section-label">Réalisations</span>
+    <h2 class="section-title">Nos motorisations</h2>
+    <p style="color: var(--body);">Exemples d'installations réalisées par AMOI à La Réunion.</p>
+  </div>
 
-    <div class="gallery-grid">
-      <div class="photo-card reveal" onclick="openLightbox('images/motorisation-portail-coulissant-01.jpg', 'Portail coulissant motorisé')">
-        <img src="images/motorisation-portail-coulissant-01.jpg" alt="Portail coulissant motorisé AMOI" class="photo-card-img" loading="lazy">
-        <p class="photo-legend">Portail coulissant motorisé</p>
-      </div>
-      <div class="photo-card reveal" onclick="openLightbox('images/motorisation-sommer-01.jpg', 'Motorisation SOMMER')">
-        <img src="images/motorisation-sommer-01.jpg" alt="Motorisation SOMMER AMOI" class="photo-card-img" loading="lazy">
-        <p class="photo-legend">Motorisation SOMMER</p>
-      </div>
-      <div class="photo-card reveal" onclick="openLightbox('images/motorisation-portail-noir-03.jpg', 'Portail noir motorisé')">
-        <img src="images/motorisation-portail-noir-03.jpg" alt="Portail noir motorisé AMOI" class="photo-card-img" loading="lazy">
-        <p class="photo-legend">Portail noir motorisé</p>
+  <div class="photo-grid" style="margin-top: 24px;">
+    <div class="photo-card">
+      <img src="images/motorisation-portail-coulissant-01.jpg" alt="Portail coulissant motorisé par AMOI à La Réunion" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Portail coulissant motorisé</h4>
       </div>
     </div>
-
-    <h3 style="margin-top: 40px; margin-bottom: 15px;">Exemples détaillés</h3>
-    
-    <div class="gallery-grid">
-      <div class="photo-card reveal" onclick="openLightbox('images/motorisation-portail-bleu-02.jpg', 'Portail bleu motorisé')">
-        <img src="images/motorisation-portail-bleu-02.jpg" alt="Portail bleu motorisé AMOI" class="photo-card-img" loading="lazy">
-        <p class="photo-legend">Portail coulissant bleu motorisé</p>
-      </div>
-      <div class="photo-card reveal" onclick="openLightbox('images/motorisation-portail-bleu-03.jpg', 'Portail bleu motorisé')">
-        <img src="images/motorisation-portail-bleu-03.jpg" alt="Portail bleu motorisé AMOI" class="photo-card-img" loading="lazy">
-        <p class="photo-legend">Portail motorisé bleu</p>
+    <div class="photo-card">
+      <img src="images/motorisation-sommer-01.jpg" alt="Motorisation SOMMER par AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Motorisation SOMMER</h4>
       </div>
     </div>
-
+    <div class="photo-card">
+      <img src="images/motorisation-portail-noir-03.jpg" alt="Portail noir motorisé par AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Portail noir motorisé</h4>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="section" style="background: #fafafa; text-align: center;">
+  <h2 class="section-title">Un projet de motorisation ?</h2>
+  <p style="color: var(--body); max-width: 520px; margin: 0 auto 24px;">Devis gratuit et sans engagement. Nous intervenons sur toute l'île.</p>
+  <a href="contact.html" class="nav-cta" style="display: inline-block;">Demander un devis</a>
+</section>
 
-
-
-
-
-
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <img src="images/logo.webp" alt="AMOI" class="footer-logo">
-        <ul class="footer-contact">
-          <li>📍 14 Rue des Lilas, 97412 Bras-Panon</li>
-          <li><a href="tel:+262****6318">📞 06 92 43 63 18</a></li>
-          <li><a href="mailto:amoi.reunion@gmail.com">✉️ amoi.reunion@gmail.com</a></li>
-          <li><a href="https://www.facebook.com/amoireunion/" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Plan du site</h4>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="charpente.html">Charpente métal/bois</a></li>
-          <li><a href="couverture.html">Couverture</a></li>
-          <li><a href="metallerie.html">Métallerie</a></li>
-          <li><a href="automatisme.html">Automatisme / Contrôle d'accès</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nos prestations</h4>
-        <ul>
-          <li><a href="charpente.html">Charpente métallique</a></li>
-          <li><a href="charpente.html">Construction métallique</a></li>
-          <li><a href="metallerie.html">Métallerie métallique</a></li>
-          <li><a href="automatisme.html">Portail</a></li>
-          <li><a href="automatisme.html">Clôture</a></li>
-          <li><a href="couverture.html">Rénovation toiture</a></li>
-          <li><a href="couverture.html">Rénovation couverture</a></li>
-          <li><a href="automatisme.html">Automatisation portails</a></li>
-          <li><a href="charpente.html">Charpente bois</a></li>
-          <li><a href="metallerie.html">Pergolas</a></li>
-          <li><a href="metallerie.html">Terrasse bois</a></li>
-        </ul>
-      </div>
+<!-- Footer propre et simple -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>AMOI</strong><br>
+      14 Rue des Lilas<br>
+      97412 Bras-Panon
+    </div>
+    <div>
+      <a href="tel:+262692436318">06 92 43 63 18</a><br>
+      <a href="mailto:amoi.reunion@gmail.com">amoi.reunion@gmail.com</a>
+    </div>
+    <div>
+      <a href="charpente.html">Charpente</a><br>
+      <a href="couverture.html">Couverture</a><br>
+      <a href="metallerie.html">Métallerie</a><br>
+      <a href="automatisme.html">Automatisme</a>
+    </div>
+    <div>
+      <a href="#">Mentions légales</a><br>
+      <a href="#">Gestion des cookies</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-sm)">
-      <span>© 2024 AMOI - Tous droits réservés</span>
-      <span>
-        <a href="#">Mentions légales</a> — 
-        <a href="#">Gestion des cookies</a>
-      </span>
-    </div>
+    © 2026 AMOI — Tous droits réservés
   </div>
 </footer>
 
-<!-- Scroll to top -->
-<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
-
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="container">
-    <p>Ce site utilise des cookies pour améliorer votre expérience.</p>
-    <div class="cookie-actions">
-      <button class="btn btn-sm btn-primary" onclick="document.getElementById('cookieBanner').style.display='none'">Tout accepter</button>
-      <button class="btn btn-sm btn-outline-dark" onclick="document.getElementById('cookieBanner').style.display='none'" style="color:var(--white);border-color:var(--white)">Tout refuser</button>
-    </div>
-  </div>
-</div>
-
+<!-- Lightbox simple -->
 <script>
-// Mobile nav toggle
-document.getElementById('navToggle').addEventListener('click', function() {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Scroll effects
-window.addEventListener('scroll', function() {
-  var navbar = document.getElementById('navbar');
-  var scrollTop = document.getElementById('scrollTop');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-    scrollTop.classList.add('visible');
-  } else {
-    navbar.classList.remove('scrolled');
-    scrollTop.classList.remove('visible');
-  }
-});
-
-document.getElementById('scrollTop').addEventListener('click', function() {
-  window.scrollTo({top:0, behavior:'smooth'});
-});
-
-// Lightbox for gallery
-function openLightbox(imageSrc, caption) {
+function openLightbox(src, caption) {
   const modal = document.createElement('div');
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;';
   modal.innerHTML = `
-    <div style="max-width:90%;max-height:90%;position:relative;">
-      <img src="${imageSrc}" style="max-width:100%;max-height:80vh;border-radius:8px;" alt="${caption}">
-      <p style="color:white;text-align:center;margin-top:10px;font-size:16px;">${caption}</p>
-      <button onclick="this.closest('div[style*=\'position:fixed\']').remove()" style="position:absolute;top:-40px;right:0;background:#CC2626;color:white;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;">Fermer</button>
+    <div style="max-width:92%;max-height:92%;position:relative;text-align:center;">
+      <img src="${src}" style="max-width:100%;max-height:82vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.6);" alt="${caption}">
+      <p style="color:#fff;margin-top:14px;font-size:15px;opacity:0.9;">${caption}</p>
+      <button onclick="this.closest('div[style*=\\'position:fixed\\']').remove()" style="position:absolute;top:-36px;right:0;background:#CC2626;color:white;border:none;padding:8px 18px;border-radius:4px;font-size:13px;cursor:pointer;">Fermer</button>
     </div>
   `;
   document.body.appendChild(modal);
   modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
 }
 
-// Cookie banner
-if (!localStorage.getItem('cookiesAccepted')) {
-  document.getElementById('cookieBanner').style.display = 'block';
-}
-document.querySelectorAll('#cookieBanner button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    localStorage.setItem('cookiesAccepted', 'true');
+// Ajout des listeners sur les images de galerie (optionnel, pour simplicité)
+document.querySelectorAll('.photo-card img').forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', () => {
+    const card = img.closest('.photo-card');
+    const caption = card.querySelector('h4') ? card.querySelector('h4').textContent : 'Réalisation AMOI';
+    openLightbox(img.src, caption);
   });
 });
 </script>
