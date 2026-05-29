@@ -232,7 +232,6 @@
 </section>
 
 <!-- Galerie propre - seulement les bonnes réalisations -->
-<section class="section">
   <div>
     <h2 class="section-title">Réalisations</h2>
     <p style="color: var(--body); max-width: 700px; margin-bottom: 24px;">
@@ -240,20 +239,38 @@
     </p>
   </div>
 
-  <div class="photo-grid" style="margin-top: 24px;">
-    <div class="photo-card">
-      <img src="images/motorisation-portail-bleu-01.jpg" alt="Motorisation portail coulissant bleu - mécanisme" class="photo-card-img" loading="lazy">
+  <div style="display: flex; flex-direction: column; gap: 40px; max-width: 1100px; margin: 0 auto;">
+
+    <!-- Photo 1 : Mécanisme -->
+    <div class="photo-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+      <img src="images/motorisation-portail-bleu-01.jpg" alt="Motorisation portail coulissant bleu - détail du mécanisme" style="width: 100%; height: auto; display: block;">
     </div>
-    <div class="photo-card">
-      <img src="images/motorisation-portail-bleu-02.jpg" alt="Portail coulissant bleu motorisé 6m x 2m" class="photo-card-img" loading="lazy">
+
+    <!-- Paire 02 : Photo + Vidéo -->
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div class="photo-card" style="flex: 1; min-width: 300px; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+        <img src="images/motorisation-portail-bleu-02.jpg" alt="Portail coulissant bleu motorisé - vue d'ensemble" style="width: 100%; height: auto; display: block;">
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <video src="images/motorisation-portail-bleu-02.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+      </div>
     </div>
-    <div class="photo-card">
-      <img src="images/motorisation-portail-bleu-03.jpg" alt="Portail coulissant bleu - vue d'ensemble" class="photo-card-img" loading="lazy">
+
+    <!-- Paire 03 : Photo + Vidéo -->
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div class="photo-card" style="flex: 1; min-width: 300px; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+        <img src="images/motorisation-portail-bleu-03.jpg" alt="Portail coulissant bleu motorisé - autre angle" style="width: 100%; height: auto; display: block;">
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <video src="images/motorisation-portail-bleu-03.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+      </div>
     </div>
+
   </div>
-
-
-</section>
 
 <!-- CTA -->
 <section class="section" style="background: #fafafa; text-align: center;">
