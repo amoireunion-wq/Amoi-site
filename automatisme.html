@@ -104,6 +104,9 @@ nav {
   position: absolute; inset: 0; z-index: 0;
   filter: brightness(0.30);
 }
+.hero-bg video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.30);
+}
 .hero-inner {
   max-width: 1200px; margin: 0 auto; width: 100%;
   position: relative; z-index: 1;
@@ -163,7 +166,7 @@ nav {
 <!-- HERO -->
 <header class="hero">
   <div class="hero-bg">
-    <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.30);">
+    <video autoplay loop muted playsinline>
       <source src="images/hero-automatisme.mp4" type="video/mp4"><!-- video hero integrated and cleaned -->
     </video>
   </div>
