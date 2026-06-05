@@ -1,120 +1,361 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AMOI - Métallerie métallique sur mesure à La Réunion. Pergolas, terrasses, garde-corps, portails et escaliers métalliques. Fabrication artisanale. Devis gratuit.">
-  <title>Métallerie métallique sur mesure à La Réunion - AMOI</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/webp" href="images/logo.webp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AMOI - Métallerie métallique sur mesure à La Réunion. Pergolas, terrasses, garde-corps, portails et escaliers métalliques. Fabrication artisanale. Devis gratuit.">
+<title>Métallerie métallique sur mesure à La Réunion - AMOI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/webp" href="images/logo.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amoi.re/metallerie.html">
+<meta property="og:title" content="Métallerie métallique sur mesure à La Réunion - AMOI">
+<meta property="og:description" content="AMOI - Métallerie métallique sur mesure à La Réunion. Pergolas, terrasses, garde-corps, portails et escaliers métalliques. Fabrication artisanale. Devis gratuit.">
+<meta property="og:image" content="https://amoi.re/images/logo.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="AMOI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Métallerie métallique sur mesure à La Réunion - AMOI">
+<meta name="twitter:description" content="AMOI - Métallerie métallique sur mesure à La Réunion. Pergolas, terrasses, garde-corps, portails et escaliers métalliques. Fabrication artisanale. Devis gratuit.">
+<meta name="twitter:image" content="https://amoi.re/images/logo.webp">
+<link rel="canonical" href="https://amoi.re/metallerie.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"AMOI","url":"https://amoi.re/","telephone":"+262692436318","address":{"@type":"PostalAddress","streetAddress":"14 Rue des Lilas","addressLocality":"Bras-Panon","postalCode":"97412","addressRegion":"La Réunion","addressCountry":"FR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:30"}],"areaServed":{"@type":"State","name":"La Réunion"}}
+</script>
+<style>
+:root {
+  --red: #CC2626;
+  --red-dark: #A01E1E;
+  --red-glow: rgba(204,38,38,0.12);
+  --red-ghost: rgba(204,38,38,0.06);
+  --heading: #000;
+  --body: #555;
+  --light: #888;
+  --border: #eee;
+  --bg: #fff;
+  --bg-alt: #fafafa;
+}
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://amoi.re/metallerie.html">
-  <meta property="og:title" content="Métallerie métallique sur mesure à La Réunion - AMOI">
-  <meta property="og:description" content="AMOI - Métallerie métallique sur mesure à La Réunion. Pergolas, terrasses, garde-corps, portails et escaliers métalliques. Fabrication artisanale. Devis gratuit.">
-  <meta property="og:image" content="https://amoi.re/images/logo.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="AMOI">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Métallerie métallique sur mesure à La Réunion - AMOI">
-  <meta name="twitter:description" content="AMOI - Métallerie métallique sur mesure à La Réunion. Pergolas, terrasses, garde-corps, portails et escaliers métalliques. Fabrication artisanale. Devis gratuit.">
-  <meta name="twitter:image" content="https://amoi.re/images/logo.webp">
-  <!-- Canonical -->
-  <link rel="canonical" href="https://amoi.re/metallerie.html">
-  <!-- Robots -->
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"AMOI","url":"https://amoi.re/","telephone":"+262692436318","address":{"@type":"PostalAddress","streetAddress":"14 Rue des Lilas","addressLocality":"Bras-Panon","postalCode":"97412","addressRegion":"La Réunion","addressCountry":"FR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:30"}],"areaServed":{"@type":"State","name":"La Réunion"}}
-  </script>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--heading);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
+  50%       { box-shadow: 0 0 0 12px transparent; }
+}
 
-  <style>
-    /* === Modern harmonization from accueil === */
-    :root {
-      --red: #CC2626;
-      --red-dark: #A01E1E;
-      --red-glow: rgba(204,38,38,0.12);
-      --red-ghost: rgba(204,38,38,0.06);
-      --heading: #000;
-      --body: #555;
-      --light: #888;
-      --border: #eee;
-      --bg: #fff;
-    }
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Modern Nav - exact from accueil */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 28px; height: 68px;
-    }
-    .nav-logo img { max-height: 55px; height: auto; width: auto; display: block; }
-    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--heading);
-      text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--red); transition: width 0.3s;
-    }
-    .nav-links a:hover { color: var(--red); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: var(--red); color: #fff;
-      padding: 10px 24px; border-radius: 40px;
-      font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
-      text-decoration: none; transition: all 0.25s;
-      box-shadow: 0 4px 16px var(--red-glow);
-    }
-    .nav-cta:hover {
-      background: var(--red-dark); transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(160,30,30,0.25);
-    }
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; height: 68px;
+}
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { max-height: 55px; height: auto; width: auto; display: block; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--heading);
+  text-decoration: none; letter-spacing: -0.2px; transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--red); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--red); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--red); color: #fff;
+  padding: 10px 24px; border-radius: 40px;
+  font-weight: 600; font-size: 14px; letter-spacing: -0.2px;
+  text-decoration: none; transition: all 0.25s;
+  box-shadow: 0 4px 16px var(--red-glow);
+}
+.nav-cta:hover {
+  background: var(--red-dark); transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(160,30,30,0.25);
+}
 
-    /* Basic modern section + card styles */
-    .section {
-      max-width: 1200px; margin: 0 auto; padding: 60px 28px;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .photo-card {
-      border-radius: 12px; overflow: hidden;
-      border: 1px solid var(--border);
-      background: #fff;
-      transition: all 0.25s ease;
-    }
-    .photo-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-    .photo-card img {
-      width: 100%; height: 200px; object-fit: cover; display: block;
-    }
-    .photo-card-body { padding: 16px; }
-    .photo-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .photo-card p { font-size: 13px; color: #666; line-height: 1.4; }
-  </style>
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 420px;
+  display: flex; align-items: center;
+  padding: 60px 28px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: url('images/métalleries-3.webp') center/cover no-repeat;
+  filter: brightness(0.30);
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  position: relative; z-index: 1;
+  color: #fff;
+  animation: fadeUp 0.8s ease;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--red); border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+.hero h1 {
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 800; line-height: 1.05;
+  letter-spacing: -1.5px; margin-bottom: 18px; max-width: 640px;
+}
+.hero h1 .accent { color: #fff; position: relative; }
+.hero h1 .accent::after {
+  content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
+  height: 8px; background: rgba(204,38,38,0.5); border-radius: 4px; z-index: -1;
+}
+.hero p {
+  font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.8);
+  line-height: 1.6; margin-bottom: 28px; max-width: 480px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* BTN */
+.btn {
+  display: inline-flex; align-items: center;
+  padding: 14px 28px; font-family: 'Inter', sans-serif;
+  font-size: 15px; font-weight: 600; border-radius: 40px;
+  text-decoration: none; letter-spacing: -0.3px;
+  cursor: pointer; transition: all 0.25s; border: none;
+}
+.btn-primary {
+  background: var(--red); color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.btn-primary:hover {
+  background: var(--red-dark); transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.btn-ghost {
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+/* SECTION */
+.section {
+  max-width: 1200px; margin: 0 auto; padding: 80px 28px;
+}
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-label {
+  font-size: 12px; font-weight: 600; color: var(--red-dark);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
+  display: block;
+}
+.section-header h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800; letter-spacing: -1.2px; line-height: 1.1;
+}
+.section-header p {
+font-size: 15px; color: var(--light); max-width: 500px;
+  margin: 10px auto 0;
+}
+
+/* PHOTO CARDS */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.photo-card {
+  position: relative;
+  border-radius: 14px; overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none; color: inherit;
+  display: block;
+}
+.photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  border-color: rgba(204,38,38,0.2);
+}
+.photo-card-img {
+  width: 100%; height: 220px;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.photo-card:hover .photo-card-img { transform: scale(1.04); }
+.photo-card-body { padding: 20px; }
+.photo-card h4 {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.3px; margin-bottom: 6px;
+}
+.photo-card p { font-size: 13px; color: var(--body); line-height: 1.5; }
+.photo-card .tag {
+  display: inline-block;
+  padding: 3px 10px; margin-top: 10px;
+  background: var(--red-ghost); color: var(--red-dark);
+  border-radius: 12px; font-size: 11px; font-weight: 600;
+}
+
+/* CONTENT GRID (texte + image) */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.content-grid img {
+  width: 100%; border-radius: 14px;
+  border: 1px solid var(--border);
+}
+.content-grid ul {
+  list-style: none; margin-top: 16px;
+}
+.content-grid ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px; color: var(--body);
+  display: flex; align-items: center; gap: 10px;
+}
+.content-grid ul li::before {
+  content: '→'; color: var(--red); font-weight: 700;
+}
+
+/* BANNER NOIRE */
+.banner {
+  background: #0a0a0a; color: #fff; padding: 60px 28px;
+}
+.banner-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 28px; text-align: center;
+}
+.banner-stat .num {
+  font-size: clamp(36px, 5vw, 50px);
+  font-weight: 800; letter-spacing: -2px;
+  color: var(--red); display: block; line-height: 1;
+}
+.banner-stat .num span { font-size: 28px; }
+.banner-stat .lab {
+  font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-top: 6px; display: block;
+}
+
+/* BADGES */
+.badges-row {
+  display: flex; justify-content: center; gap: 48px;
+  flex-wrap: wrap; margin-top: 0;
+}
+.badge-item { text-align: center; }
+.badge-item img {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--bg-alt); padding: 12px;
+  transition: transform 0.2s;
+}
+.badge-item img:hover { transform: scale(1.1); }
+.badge-item span {
+  display: block; margin-top: 8px;
+  font-size: 12px; font-weight: 600; color: var(--light);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* CTA */
+.cta-section {
+  max-width: 1200px; margin: 0 auto; padding: 80px 28px; text-align: center;
+}
+.cta-box {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border-radius: 20px; padding: 56px 32px; color: #fff;
+  position: relative; overflow: hidden;
+}
+.cta-box::before {
+  content: ''; position: absolute; top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+}
+.cta-box h2 {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;
+  position: relative;
+}
+.cta-box p {
+  font-size: 16px; opacity: 0.9; margin-bottom: 24px; position: relative;
+}
+.btn-white {
+  background: #fff; color: var(--red);
+  padding: 14px 32px; border-radius: 40px;
+  font-weight: 700; font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none; letter-spacing: -0.3px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s; position: relative;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+/* FOOTER */
+footer {
+  max-width: 1200px; margin: 0 auto;
+padding: 28px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 13px; color: var(--light);
+}
+footer a { color: var(--red); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { min-height: 320px; padding: 48px 20px; }
+  .hero h1 { font-size: 30px; letter-spacing: -0.8px; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .content-grid { grid-template-columns: 1fr; }
+  .section { padding: 48px 20px; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
 </head>
 <body>
 
-<!-- Navigation -->
-<!-- NAV harmonized with accueil -->
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -130,233 +371,115 @@
   </div>
 </nav>
 
-<!-- Page Header -->
-<section class="page-header">
-  <div class="page-header-bg" style="background: url('images/hero-charpente.webp') center/cover no-repeat; filter: brightness(0.35);"></div>
-  <div class="container">
-    <h1>MENUISERIE</h1>
-    <p class="subtitle">AMOI SUR TOUTE L'ÎLE</p>
-  </div>
-</section>
-
-<!-- Métallerie sur mesure -->
-<section class="content-section">
-  <div class="container">
-    <span class="section-label">ROBUSTESSE ET DESIGN</span>
-    <h2 class="section-title">Métallerie sur mesure</h2>
-    <div class="content-grid">
-      <div>
-        <p>Chez AMOI, nous donnons forme à vos projets de métallerie métallique avec précision et créativité. Situés près de Paniandy, nous réalisons des ouvrages durables et esthétiques, parfaitement adaptés à votre maison ou à vos extérieurs.</p>
-        <ul class="content-list">
-          <li>L'installation de pergolas sur mesure</li>
-          <li>La création de terrasses métalliques ou mixtes</li>
-          <li>La pose de garde-corps sécurisés et design</li>
-          <li>La mise en place d'escaliers métalliques</li>
-        </ul>
-      </div>
-      <div>
-        <img src="images/métalleries-1.webp" alt="Garde-corps métallique sur mesure fabriqué par AMOI">
-      </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Sur toute l'île de La Réunion</div>
+    <h1>Votre <span class="accent">métallerie</span> sur mesure</h1>
+    <p>Pergolas, terrasses, garde-corps, escaliers — AMOI conçoit et fabrique vos ouvrages métalliques avec précision et créativité.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-primary">Demander un devis →</a>
+      <a href="#realisations" class="btn btn-ghost">Nos réalisations</a>
     </div>
   </div>
-</section>
+</header>
 
-<!-- Articles -->
-<section class="section section-gray">
-  <div class="container">
-    <h2 class="section-title">Nos réalisations récentes</h2>
-    <div class="articles-grid">
-      <div class="article-card">
-        <img src="images/métalleries-1.webp" alt="Terrasse en composite réalisée par AMOI">
-        <div class="article-content">
-          <h4>RÉALISATION D'UNE TERRASSE COMPOSITE</h4>
-          <p>Découvrez notre savoir-faire dans la création de terrasses modernes et résistantes, alliant bois composite et structure métallique pour un rendu impeccable.</p>
-          <a href="contact.html" class="read-more">En savoir plus →</a>
-        </div>
-      </div>
-      <div class="article-card">
-        <img src="images/pergolas.webp" alt="Pergola métallique sur mesure conçue par AMOI">
-        <div class="article-content">
-          <h4>INSTALLATION DE PERGOLA</h4>
-          <p>Nous concevons et installons des pergolas métalliques sur mesure, parfaitement intégrées à votre espace extérieur pour créer un lieu de vie unique.</p>
-          <a href="contact.html" class="read-more">En savoir plus →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Galerie d'images -->
+<!-- PRÉSENTATION -->
 <section class="section">
-  <div class="container">
-    <h2 class="section-title">Galerie</h2>
-    <div class="gallery gallery-4">
-      <img src="images/métalleries-1.webp" alt="Portail métallique artisanal réalisé par AMOI à La Réunion" loading="lazy">
-      <img src="images/métalleries-3.webp" alt="Escalier métallique artisanal fabriqué par AMOI" loading="lazy">
-      <img src="images/pergolas.webp" alt="Pergola bioclimatique installée par AMOI" loading="lazy">
-      <img src="images/charpente-2.webp" alt="Réalisation métallerie métallique AMOI à La Réunion" loading="lazy">
+  <div class="content-grid reveal">
+    <div>
+      <span class="section-label">Robustesse et design</span>
+      <h2 style="font-size:clamp(26px,3.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;">Métallerie sur mesure à Bras-Panon</h2>
+      <p style="font-size:15px;color:var(--body);margin-bottom:16px;">Chez AMOI, nous donnons forme à vos projets de métallerie métallique avec précision et créativité. Basés à Bras-Panon, nous réalisons des ouvrages durables et esthétiques, parfaitement adaptés à votre maison ou à vos extérieurs.</p>
+      <ul>
+        <li>Installation de pergolas sur mesure</li>
+        <li>Création de terrasses métalliques ou mixtes</li>
+        <li>Pose de garde-corps sécurisés et design</li>
+        <li>Mise en place d'escaliers métalliques</li>
+      </ul>
+    </div>
+    <div>
+      <img src="images/métalleries-1.webp" alt="Garde-corps métallique sur mesure fabriqué par AMOI">
     </div>
   </div>
 </section>
 
-<!-- Badges confiance -->
-<section class="section section-gray">
-  <div class="container">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <img src="images/badge-experience.webp" alt="Expérience">
-        <h4>Plus de 10 ans d'expérience</h4>
-      </div>
-      <div class="trust-item">
-        <img src="images/badge-rc-pro.webp" alt="RC Pro">
-        <h4>Responsabilité civile professionnelle</h4>
-      </div>
-      <div class="trust-item">
-        <img src="images/badge-garantie.webp" alt="Garantie">
-        <h4>Garantie décennale</h4>
+<!-- RÉALISATIONS -->
+<section class="section" id="realisations" style="padding-top:0;">
+  <div class="section-header reveal">
+    <span class="section-label">Nos réalisations</span>
+    <h2>Quelques projets récents</h2>
+    <p>Chaque ouvrage est conçu sur mesure, adapté à vos besoins et à votre environnement.</p>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-card reveal">
+      <img src="images/pergolas.webp" alt="Pergola métallique AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Pergola sur mesure</h4>
+        <p>Pergola métallique conçue et installée sur mesure, intégrée à votre espace extérieur.</p>
+        <span class="tag">Pergola</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA Contact -->
-<section class="cta-section">
-  <div class="container">
-    <span class="section-label">Prenons contact</span>
-    <h2 class="section-title">Un projet de métallerie métallique ?</h2>
-    <p>Vous souhaitez obtenir un devis, des conseils ou simplement en savoir plus sur nos prestations en <strong>métallerie métallique</strong> ? N'hésitez pas à nous contacter. L'équipe <strong>AMOI</strong> est à votre écoute pour répondre à toutes vos demandes et vous accompagner dans la réalisation de vos travaux sur <strong>toute l'île</strong>.</p>
-    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
-  </div>
-</section>
-
-<!-- Coordonnées -->
-<section class="section section-gray">
-  <div class="container">
-    <div class="contact-info" style="flex-direction:row;justify-content:center;gap:var(--space-xl);flex-wrap:wrap">
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📍</div>
-        <div class="contact-info-text">
-          <h4>Adresse</h4>
-          <p>14 Rue des Lilas<br>97412 Bras-Panon</p>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📞</div>
-        <div class="contact-info-text">
-          <h4>Téléphone</h4>
-          <a href="tel:+262****6318">06 92 43 63 18</a>
-        </div>
-      </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">✉️</div>
-        <div class="contact-info-text">
-          <h4>E-mail</h4>
-          <a href="mailto:amoi.reunion@gmail.com">amoi.reunion@gmail.com</a>
-        </div>
+    <div class="photo-card reveal">
+      <img src="images/métalleries-3.webp" alt="Escalier métallique AMOI" class="photo-card-img" loading="lazy">
+      <div class="photo-card-body">
+        <h4>Escalier métallique</h4>
+        <p>Escalier artisanal fabriqué sur mesure, alliant robustesse et esthétique.</p>
+        <span class="tag">Escalier</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <img src="images/logo.webp" alt="AMOI" class="footer-logo">
-        <ul class="footer-contact">
-          <li>📍 14 Rue des Lilas, 97412 Bras-Panon</li>
-          <li><a href="tel:+262****6318">📞 06 92 43 63 18</a></li>
-          <li><a href="mailto:amoi.reunion@gmail.com">✉️ amoi.reunion@gmail.com</a></li>
-          <li><a href="https://www.facebook.com/amoireunion/" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Plan du site</h4>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="charpente.html">Charpente métal/bois</a></li>
-          <li><a href="couverture.html">Couverture</a></li>
-          <li><a href="metallerie.html">Métallerie</a></li>
-          <li><a href="automatisme.html">Automatisme / Contrôle d'accès</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nos prestations</h4>
-        <ul>
-          <li><a href="charpente.html">Charpente métallique</a></li>
-          <li><a href="charpente.html">Construction métallique</a></li>
-          <li><a href="metallerie.html">Métallerie métallique</a></li>
-          <li><a href="automatisme.html">Portail</a></li>
-          <li><a href="automatisme.html">Clôture</a></li>
-          <li><a href="couverture.html">Rénovation toiture</a></li>
-          <li><a href="couverture.html">Rénovation couverture</a></li>
-          <li><a href="automatisme.html">Automatisation portails</a></li>
-          <li><a href="charpente.html">Charpente bois</a></li>
-          <li><a href="metallerie.html">Pergolas</a></li>
-          <li><a href="metallerie.html">Terrasse bois</a></li>
-        </ul>
-      </div>
+<!-- BANNER STATS -->
+<section class="banner">
+  <div class="banner-inner reveal">
+    <div class="banner-stat"><span class="num">500<span>+</span></span><span class="lab">Chantiers</span></div>
+<div class="banner-stat"><span class="num">4</span><span class="lab">Corps de métier</span></div>
+    <div class="banner-stat"><span class="num">24</span><span class="lab">Communes</span></div>
+    <div class="banner-stat"><span class="num">100<span>%</span></span><span class="lab">Sur mesure</span></div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="section" style="padding-top:60px;padding-bottom:40px;">
+  <div class="badges-row reveal">
+    <div class="badge-item">
+      <img src="images/badge-experience.webp" alt="15 ans d'expérience" loading="lazy">
+      <span>15 ans d'expérience</span>
+    </div>
+    <div class="badge-item">
+      <img src="images/badge-rc-pro.webp" alt="Responsabilité civile" loading="lazy">
+      <span>Responsabilité civile</span>
+    </div>
+    <div class="badge-item">
+      <img src="images/badge-garantie.webp" alt="Garantie décennale" loading="lazy">
+      <span>Garantie décennale</span>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-sm)">
-      <span>© 2024 AMOI - Tous droits réservés</span>
-      <span>
-        <a href="#">Mentions légales</a> — 
-        <a href="#">Gestion des cookies</a>
-      </span>
-    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="cta-box">
+    <h2>Un projet de métallerie ?</h2>
+    <p>Parlez-nous de votre chantier. Devis gratuit et sans engagement sur toute l'île.</p>
+    <a href="contact.html" class="btn-white">Demander un devis →</a>
   </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 AMOI — 14 rue des Lilas, 97412 Bras-Panon</span>
+  <span><a href="tel:+262692436318">06 92 43 63 18</a> — <a href="mailto:direction@amoi.re">direction@amoi.re</a></span>
 </footer>
 
-<!-- Scroll to top -->
-<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
-
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="container">
-    <p>Ce site utilise des cookies pour améliorer votre expérience.</p>
-    <div class="cookie-actions">
-      <button class="btn btn-sm btn-primary" onclick="document.getElementById('cookieBanner').style.display='none'">Tout accepter</button>
-      <button class="btn btn-sm btn-outline-dark" onclick="document.getElementById('cookieBanner').style.display='none'" style="color:var(--white);border-color:var(--white)">Tout refuser</button>
-    </div>
-  </div>
-</div>
-
 <script>
-// Mobile nav toggle
-document.getElementById('navToggle').addEventListener('click', function() {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Scroll effects
-window.addEventListener('scroll', function() {
-  var navbar = document.getElementById('navbar');
-  var scrollTop = document.getElementById('scrollTop');
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-    scrollTop.classList.add('visible');
-  } else {
-    navbar.classList.remove('scrolled');
-    scrollTop.classList.remove('visible');
-  }
-});
-
-document.getElementById('scrollTop').addEventListener('click', function() {
-  window.scrollTo({top:0, behavior:'smooth'});
-});
-
-// Cookie banner
-if (!localStorage.getItem('cookiesAccepted')) {
-  document.getElementById('cookieBanner').style.display = 'block';
-}
-document.querySelectorAll('#cookieBanner button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    localStorage.setItem('cookiesAccepted', 'true');
-  });
-});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
